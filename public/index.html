@@ -1,0 +1,1724 @@
+<!DOCTYPE html>
+<style id="resq-developer-footer-style">
+.resq-developer-footer{
+  margin:64px auto 0;
+  padding:34px 20px 28px;
+  text-align:center;
+  border-top:1px solid rgba(255,255,255,.08);
+  color:#8C93A6;
+  font-family:inherit;
+}
+.resq-footer-brand{
+  color:#F5F6F8;
+  font-size:16px;
+  font-weight:700;
+  letter-spacing:.02em;
+  margin-bottom:9px;
+}
+.resq-footer-credit{
+  font-size:13px;
+  letter-spacing:.01em;
+}
+.resq-footer-credit span{
+  color:#FF453A;
+  font-size:14px;
+  margin:0 2px;
+}
+.resq-footer-credit strong{
+  color:#F5F6F8;
+  font-weight:650;
+}
+.resq-footer-meta{
+  margin-top:8px;
+  font-size:11px;
+  opacity:.72;
+}
+</style>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ResQVerse AI — Emergency Intelligence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"><script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/qrious@4.0.2/dist/qrious.min.js"></script>
+<style>
+:root{--bg:#05070c;--surface:#0b101a;--surface2:#101722;--surface3:#151d2b;--line:rgba(255,255,255,.085);--text:#f7f9fc;--muted:#8d98aa;--blue:#72a7ff;--violet:#9a7bff;--cyan:#58d6ff;--red:#ff453a;--green:#46d68a;--gold:#f4c66a;--shadow:0 30px 90px rgba(0,0,0,.38);color-scheme:dark}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(800px 500px at 75% -10%,rgba(99,91,255,.18),transparent 65%),radial-gradient(700px 500px at 5% 35%,rgba(0,180,255,.08),transparent 65%),var(--bg);color:var(--text);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.shell{max-width:1240px;margin:auto;padding:0 24px 80px}.nav{height:78px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50;background:rgba(5,7,12,.72);backdrop-filter:blur(24px);border-bottom:1px solid rgba(255,255,255,.05)}.brand{display:flex;align-items:center;gap:11px;font-family:"Plus Jakarta Sans";font-weight:800;letter-spacing:-.045em}.mark{width:37px;height:37px;border-radius:12px;background:linear-gradient(135deg,#fff 0%,#76a9ff 48%,#8d63ff 100%);display:grid;place-items:center;color:#070a12;box-shadow:0 10px 32px rgba(104,125,255,.32)}.mark svg{width:20px}.navlinks{display:flex;gap:4px}.navlinks button{border:0;background:transparent;color:var(--muted);padding:9px 12px;border-radius:10px;cursor:pointer}.navlinks button:hover,.navlinks button.active{background:rgba(255,255,255,.06);color:#fff}.nav .mini-status{font-size:11px;color:var(--muted);display:flex;align-items:center;gap:7px}.live{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 15px var(--green)}
+.hero{min-height:650px;display:grid;place-items:center;text-align:center;padding:90px 0 75px;position:relative;overflow:hidden}.hero:before{content:"";position:absolute;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(107,124,255,.18),transparent 65%);filter:blur(10px);top:10px;left:50%;transform:translateX(-50%);pointer-events:none}.eyebrow{position:relative;display:inline-flex;align-items:center;gap:8px;color:#bfd0ff;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:8px 12px;border:1px solid rgba(139,124,255,.25);background:rgba(112,91,255,.08);border-radius:999px}.hero h1{position:relative;font-family:"Plus Jakarta Sans";font-size:clamp(50px,8.4vw,100px);line-height:.96;letter-spacing:-.085em;margin:24px auto 25px;max-width:1000px}.hero h1 .gradient{background:linear-gradient(105deg,#fff 8%,#b8d4ff 48%,#a78bfa 90%);-webkit-background-clip:text;background-clip:text;color:transparent}.hero p{position:relative;max-width:670px;margin:auto;color:var(--muted);font-size:17px;line-height:1.75}.actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:32px;position:relative}.btn{border:1px solid var(--line);border-radius:13px;padding:13px 19px;background:rgba(255,255,255,.055);color:#fff;cursor:pointer;transition:.24s;font-weight:600}.btn:hover{transform:translateY(-2px);background:rgba(255,255,255,.095)}.btn.primary{background:#fff;color:#080b12;border-color:#fff}.btn.ai{background:linear-gradient(135deg,#548fff,#8069ff);border:0;box-shadow:0 15px 42px rgba(91,105,255,.24)}.btn.danger{background:rgba(255,69,58,.08);border-color:rgba(255,69,58,.2);color:#ffaaa5}.trust{position:relative;margin-top:38px;color:#566074;font-size:10px;letter-spacing:.08em;text-transform:uppercase}
+.dashboard{display:grid;grid-template-columns:1.35fr .65fr;gap:16px}.card{background:linear-gradient(145deg,rgba(17,24,38,.9),rgba(8,12,21,.94));border:1px solid var(--line);border-radius:26px;box-shadow:var(--shadow);overflow:hidden}.pad{padding:27px}.label{font-size:10px;font-weight:800;letter-spacing:.14em;color:#748096;text-transform:uppercase}.title{font-family:"Plus Jakarta Sans";font-size:24px;letter-spacing:-.045em;margin:7px 0}.desc{font-size:13px;line-height:1.6;color:var(--muted);margin:0}.ai-card{min-height:350px;background:radial-gradient(circle at 88% 4%,rgba(143,99,255,.19),transparent 38%),linear-gradient(145deg,#10182b,#090e18)}.orb{width:72px;height:72px;border-radius:23px;display:grid;place-items:center;background:linear-gradient(135deg,#fff,#79a6ff 44%,#8f62ff);color:#090d15;box-shadow:0 18px 55px rgba(118,104,255,.32);margin-bottom:24px}.prompts{display:flex;gap:8px;flex-wrap:wrap;margin-top:24px}.prompt{border:1px solid var(--line);background:rgba(255,255,255,.05);color:#e3eaff;border-radius:12px;padding:10px 12px;font-size:11px;cursor:pointer}.prompt:hover{border-color:rgba(125,155,255,.45)}
+.sos-card{min-height:350px;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;background:radial-gradient(circle at 50% 43%,rgba(255,69,58,.12),transparent 48%)}.sos-ring{position:relative;width:150px;height:150px;margin:17px 0 22px}.sos-ring:before,.sos-ring:after{content:"";position:absolute;inset:0;border-radius:50%;border:1px solid rgba(255,69,58,.32);animation:pulse 2.8s cubic-bezier(.2,.6,.4,1) infinite}.sos-ring:after{animation-delay:1.4s}@keyframes pulse{to{transform:scale(1.62);opacity:0}}.sos{position:relative;z-index:2;width:150px;height:150px;border:0;border-radius:50%;background:linear-gradient(145deg,#ff6b61,#ff453a 55%,#c62a22);color:#fff;font-size:20px;font-weight:800;letter-spacing:.06em;box-shadow:0 24px 62px rgba(255,69,58,.32),inset 0 1px rgba(255,255,255,.28);cursor:pointer;transition:.25s}.sos:hover{transform:scale(1.045)}.sos:active{transform:scale(.97)}.sos-caption{max-width:255px;color:var(--muted);font-size:12px;line-height:1.55;margin:0}
+.quick{display:grid;grid-template-columns:repeat(4,1fr);gap:11px;margin-top:16px}.quick button{min-height:108px;text-align:left;border:1px solid var(--line);background:rgba(255,255,255,.03);border-radius:18px;padding:17px;color:#fff;cursor:pointer;transition:.22s}.quick button:hover{transform:translateY(-3px);background:rgba(255,255,255,.055);border-color:rgba(126,157,255,.32)}.icon{width:35px;height:35px;border-radius:11px;display:grid;place-items:center;background:rgba(110,168,255,.1);color:#aac7ff;margin-bottom:13px}.quick b{font-size:13px;display:block}.quick small{display:block;color:var(--muted);font-size:10px;margin-top:4px}
+.section{margin-top:16px}.section-head{display:flex;align-items:end;justify-content:space-between;gap:15px;margin-bottom:16px}.section-head h2{font-family:"Plus Jakarta Sans";font-size:24px;letter-spacing:-.045em;margin:6px 0}.section-head p{font-size:12px;color:var(--muted);margin:0}.map-card .pad{padding-bottom:22px}#map{height:400px;border-radius:19px;overflow:hidden;border:1px solid var(--line)}.leaflet-tile-pane{filter:invert(1) hue-rotate(185deg) brightness(.88) contrast(.92) saturate(.68)}.leaflet-popup-content-wrapper,.leaflet-popup-tip{background:#101725;color:#fff}.mapbar{display:flex;align-items:center;justify-content:space-between;margin-top:11px}.status{font-size:11px;color:var(--muted)}.hospital-list{display:grid;gap:8px;margin-top:15px}.hospital{display:flex;align-items:center;gap:12px;padding:13px;border:1px solid var(--line);background:rgba(255,255,255,.022);border-radius:15px}.hospital .hicon{width:38px;height:38px;border-radius:11px;background:rgba(110,168,255,.1);color:#a9c6ff;display:grid;place-items:center}.hospital .info{flex:1;min-width:0}.hospital b{display:block;font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.hospital small{display:block;color:var(--muted);font-size:10px;margin-top:3px}.call{color:#a9c6ff;text-decoration:none;border:1px solid rgba(110,168,255,.24);background:rgba(110,168,255,.08);border-radius:10px;padding:7px 10px;font-size:10px;font-weight:700}.empty{text-align:center;color:var(--muted);font-size:12px;padding:18px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}.profile{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:17px}.box{padding:15px;border:1px solid var(--line);border-radius:15px;background:rgba(255,255,255,.025)}.box label{display:block;font-size:9px;color:#778296;text-transform:uppercase;letter-spacing:.1em;margin-bottom:7px}.box strong{font-size:13px}.ready{color:var(--green)}.resqid{margin-top:10px;padding:18px;border-radius:19px;background:linear-gradient(135deg,rgba(88,135,255,.15),rgba(145,94,255,.1));border:1px solid rgba(130,135,255,.18);display:flex;justify-content:space-between;align-items:center}.resqid .id{font-size:17px;letter-spacing:.08em;font-weight:800;margin-top:4px}.qr{width:54px;height:54px;border-radius:12px;background:repeating-linear-gradient(45deg,#fff 0 3px,#111827 3px 6px);border:5px solid #fff}.contacts{display:grid;gap:0;margin-top:7px}.contact{display:flex;align-items:center;gap:11px;padding:12px 0;border-bottom:1px solid var(--line)}.avatar{width:35px;height:35px;border-radius:50%;background:rgba(110,168,255,.11);color:#a9c6ff;display:grid;place-items:center;font-weight:800;font-size:11px}.contact .ci{flex:1}.contact b{font-size:12px}.contact small{display:block;color:var(--muted);font-size:10px;margin-top:2px}.contact a{color:#a9c6ff;text-decoration:none;font-size:10px;font-weight:700}.contact-form{display:grid;grid-template-columns:1fr 1fr auto;gap:7px;margin-top:14px}.contact-form input{width:100%;background:#070b13;border:1px solid var(--line);border-radius:10px;padding:10px;color:#fff;outline:none}.contact-form button{border:0;border-radius:10px;padding:0 14px;background:#fff;color:#080b12;font-weight:800;cursor:pointer}
+.footer{text-align:center;color:#4e596c;font-size:10px;padding-top:45px;line-height:1.7}.footer-brand{font-size:15px;font-weight:900;letter-spacing:-.02em;color:#f5f6f8;margin-bottom:7px}.footer-credit{font-size:11px;color:#8c93a6;margin-bottom:8px}.footer-credit span{color:#ff453a;font-size:12px;padding:0 2px}.footer-credit strong{color:#dfe4ef;font-weight:800}.footer-meta{font-size:10px;color:#4e596c;line-height:1.7}.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#f7f9fc;color:#080b12;padding:11px 15px;border-radius:12px;font-size:11px;font-weight:800;box-shadow:0 18px 50px rgba(0,0,0,.4);transition:.28s;z-index:100}.toast.show{opacity:1;transform:translate(-50%,0)}
+.demo-tag{display:inline-block;font-size:10px;font-weight:700;color:var(--red);background:rgba(255,69,58,.12);padding:4px 9px;border-radius:999px;margin-bottom:12px}
+.price-search{display:flex;gap:8px;margin-bottom:14px}.price-search input{flex:1;background:#070b13;border:1px solid var(--line);border-radius:11px;padding:13px 14px;color:#fff;outline:none;font:500 14px Inter,sans-serif;min-height:46px}.price-search input:focus{border-color:var(--blue)}.price-search button{border:0;border-radius:11px;padding:0 18px;background:#fff;color:#080b12;font-weight:800;cursor:pointer;min-height:46px}
+.price-list{display:grid;gap:8px}.price-row{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border:1px solid var(--line);background:rgba(255,255,255,.022);border-radius:13px}.price-row.cheapest{border-color:var(--blue)}.price-row .pname{font-size:12px;font-weight:700}.price-row .pbadge{font-size:9px;font-weight:800;color:var(--blue);background:rgba(114,167,255,.14);padding:2px 7px;border-radius:999px;margin-left:6px}.price-row .pamt{font-size:14px;font-weight:800}
+.rem-permission{font-size:11px;color:var(--muted);margin-bottom:12px}.rem-permission button{border:1px solid var(--blue);background:transparent;color:var(--blue);border-radius:999px;padding:5px 12px;font:700 11px inherit;cursor:pointer;margin-left:6px}
+.rem-form{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}.rem-form input{background:#070b13;border:1px solid var(--line);border-radius:11px;padding:13px 14px;color:#fff;outline:none;font:500 14px Inter,sans-serif;min-height:46px;color-scheme:dark}.rem-form input[type="text"]{flex:1;min-width:140px}.rem-form input[type="time"]{width:130px;flex-shrink:0}.rem-form input:focus{border-color:var(--blue)}.rem-form button{border:0;border-radius:11px;padding:0 18px;background:#fff;color:#080b12;font-weight:800;cursor:pointer;min-height:46px;flex-shrink:0}
+.rem-item{display:flex;align-items:center;justify-content:space-between;padding:11px 14px;border:1px solid var(--line);background:rgba(255,255,255,.022);border-radius:13px;margin-bottom:8px}.rem-item .rname{font-size:12px;font-weight:700}.rem-item .rtime{font-size:10px;color:var(--muted);margin-left:6px}.rem-item .rremove{background:none;border:0;color:var(--muted);font-size:11px;cursor:pointer}.rem-item .rremove:hover{color:var(--red)}
+@media(max-width:620px){.rem-form input[type="text"]{min-width:100%}}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.62);backdrop-filter:blur(12px);z-index:90;display:none;align-items:center;justify-content:center;padding:20px}.modal.show{display:flex}.modal-box{width:min(620px,100%);max-height:82vh;overflow:auto;background:linear-gradient(145deg,#111927,#080d16);border:1px solid var(--line);border-radius:26px;box-shadow:0 35px 110px rgba(0,0,0,.55);padding:25px}.modal-top{display:flex;justify-content:space-between;align-items:center}.close{border:1px solid var(--line);background:rgba(255,255,255,.05);color:#fff;width:34px;height:34px;border-radius:10px;cursor:pointer}.chat{display:grid;gap:10px;margin-top:20px}.bubble{padding:13px 15px;border-radius:16px;font-size:12px;line-height:1.6;max-width:88%}.bubble.ai{background:rgba(255,255,255,.055);border:1px solid var(--line)}.bubble.user{justify-self:end;background:linear-gradient(135deg,#4e8eff,#7866ff)}.chat-input{display:flex;gap:8px;margin-top:16px}.chat-input input{flex:1;background:#070b13;border:1px solid var(--line);border-radius:12px;padding:12px;color:#fff;outline:none}.chat-input button{border:0;border-radius:12px;padding:0 17px;background:#fff;color:#080b12;font-weight:800}
+@media(max-width:850px){.navlinks,.nav .mini-status{display:none}.dashboard,.two{grid-template-columns:1fr}.quick{grid-template-columns:1fr 1fr}.hero{min-height:590px;padding-top:65px}.hero h1{font-size:55px}.section-head{align-items:flex-start;flex-direction:column}.profile{grid-template-columns:1fr}.contact-form{grid-template-columns:1fr 1fr}.contact-form button{padding:10px}}@media(max-width:520px){.shell{padding:0 14px 50px}.nav{height:68px}.nav .btn{padding:10px 13px;font-size:11px}.hero{padding:55px 0 60px;min-height:540px}.hero h1{font-size:47px}.hero p{font-size:14px}.pad{padding:19px}.quick{grid-template-columns:1fr 1fr}.quick button{min-height:98px;padding:14px}.map-card .section-head .btn{width:100%}#map{height:300px}.contact-form{grid-template-columns:1fr}.contact-form button{padding:11px}}
+</style>
+
+<style id="resqverse-brand-intro">
+  #resq-brand-intro{
+    position:fixed; inset:0; z-index:99999;
+    display:flex; align-items:center; justify-content:center;
+    background:
+      radial-gradient(circle at 50% 45%, rgba(72,108,255,.16), transparent 30%),
+      radial-gradient(circle at 50% 60%, rgba(125,65,255,.10), transparent 42%),
+      #070A12;
+    overflow:hidden;
+    transition:opacity 900ms cubic-bezier(.22,1,.36,1), visibility 900ms;
+  }
+  #resq-brand-intro.is-done{opacity:0; visibility:hidden; pointer-events:none}
+  #resq-brand-intro .intro-grid{
+    position:absolute; inset:-20%;
+    background-image:linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+                     linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+    background-size:56px 56px;
+    mask-image:radial-gradient(circle, black 15%, transparent 72%);
+    animation:introGrid 2.8s ease-out forwards;
+  }
+  #resq-brand-intro .intro-orb{
+    position:absolute; width:360px; height:360px; border-radius:50%;
+    background:radial-gradient(circle, rgba(74,118,255,.18), transparent 68%);
+    filter:blur(12px); animation:introOrb 2.2s ease-out forwards;
+  }
+  #resq-brand-intro .brand{
+    position:relative; display:flex; flex-direction:column; align-items:center;
+    gap:22px; transform:translateY(12px); opacity:0;
+    animation:brandReveal 1.15s .25s cubic-bezier(.22,1,.36,1) forwards;
+  }
+  #resq-brand-intro .mark{
+    width:88px; height:88px; border-radius:25px;
+    display:grid; place-items:center;
+    background:linear-gradient(145deg,#5b8cff,#7048ff);
+    box-shadow:0 24px 70px rgba(67,103,255,.32), inset 0 1px 1px rgba(255,255,255,.45);
+    transform:scale(.82) rotate(-8deg);
+    animation:markReveal 1.05s .15s cubic-bezier(.22,1,.36,1) forwards;
+  }
+  #resq-brand-intro .mark svg{width:48px;height:48px}
+  #resq-brand-intro .wordmark{
+    color:#fff; font:700 30px/1 Inter,-apple-system,BlinkMacSystemFont,sans-serif;
+    letter-spacing:-.045em;
+  }
+  #resq-brand-intro .tagline{
+    color:rgba(255,255,255,.48); font:500 12px/1 Inter,-apple-system,sans-serif;
+    letter-spacing:.22em; text-transform:uppercase;
+  }
+  #resq-brand-intro .progress{
+    position:absolute; left:50%; bottom:8%; transform:translateX(-50%);
+    width:120px;height:2px;background:rgba(255,255,255,.08);overflow:hidden;border-radius:99px;
+  }
+  #resq-brand-intro .progress::after{
+    content:"";display:block;height:100%;width:0;background:#fff;
+    animation:introProgress 2.25s .15s cubic-bezier(.4,0,.2,1) forwards;
+  }
+  @keyframes brandReveal{to{opacity:1;transform:translateY(0)}}
+  @keyframes markReveal{to{transform:scale(1) rotate(0);}}
+  @keyframes introProgress{to{width:100%}}
+  @keyframes introGrid{from{transform:scale(1.12);opacity:0}to{transform:scale(1);opacity:1}}
+  @keyframes introOrb{from{transform:scale(.65);opacity:0}to{transform:scale(1);opacity:1}}
+  @media(prefers-reduced-motion:reduce){
+    #resq-brand-intro .brand,#resq-brand-intro .mark,#resq-brand-intro .progress::after{animation:none;opacity:1;transform:none;width:100%}
+  }
+</style>
+
+
+<style id="resqverse-v2-styles">
+  :root{
+    --rq-blue:#5b8cff;--rq-violet:#7658ff;--rq-red:#ff453a;--rq-green:#31d158;
+    --rq-bg:#070a12;--rq-panel:#0f1422;--rq-panel2:#131a2a;
+  }
+  .top-nav{position:sticky!important;top:14px;z-index:1000}
+  .sos-hero{
+    position:relative;overflow:hidden;margin:28px 0 34px;padding:42px 28px;
+    border:1px solid rgba(255,69,58,.22);border-radius:30px;
+    background:radial-gradient(circle at 50% 0,rgba(255,69,58,.16),transparent 45%),linear-gradient(145deg,#15131d,#0e101a);
+    text-align:center;box-shadow:0 25px 80px rgba(0,0,0,.25);
+  }
+  .sos-hero:before{content:"";position:absolute;inset:-40%;background:radial-gradient(circle,rgba(255,69,58,.09),transparent 55%);animation:sosAura 3.2s ease-in-out infinite}
+  .sos-hero>*{position:relative}
+  .sos-kicker{font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:#ff8d86;font-weight:700}
+  .sos-title{font-size:clamp(28px,5vw,44px);letter-spacing:-.045em;margin:9px 0 8px;font-weight:800}
+  .sos-sub{color:#8c93a6;max-width:560px;margin:0 auto 24px;line-height:1.55}
+  .sos-main-btn{
+    width:154px;height:154px;border:0;border-radius:50%;cursor:pointer;color:#fff;
+    font:800 18px Inter,sans-serif;letter-spacing:.06em;
+    background:linear-gradient(145deg,#ff655c,#ff453a 50%,#c6281b);
+    box-shadow:0 0 0 10px rgba(255,69,58,.06),0 0 0 22px rgba(255,69,58,.035),0 25px 55px rgba(255,69,58,.3),inset 0 2px 2px rgba(255,255,255,.25);
+    transition:.35s cubic-bezier(.22,1,.36,1)
+  }
+  .sos-main-btn:hover{transform:scale(1.045);box-shadow:0 0 0 12px rgba(255,69,58,.08),0 0 0 26px rgba(255,69,58,.04),0 30px 65px rgba(255,69,58,.4),inset 0 2px 2px rgba(255,255,255,.28)}
+  .sos-main-btn:active{transform:scale(.96)}
+  .sos-main-btn{background:linear-gradient(145deg,#ff5fa2,#ff2f86 55%,#c91d62)!important;box-shadow:0 0 0 0 rgba(255,47,134,0),0 30px 65px rgba(255,47,134,.35),inset 0 2px 2px rgba(255,255,255,.28)}
+  .sos-main-btn:hover{box-shadow:0 0 0 12px rgba(255,47,134,.08),0 0 0 26px rgba(255,47,134,.04),0 30px 65px rgba(255,47,134,.4),inset 0 2px 2px rgba(255,255,255,.28)}
+  .sos-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:22px}
+  .sos-mini{border:1px solid #2b3040;background:#141925;color:#fff;border-radius:12px;padding:10px 15px;font-weight:650;cursor:pointer}
+  .sos-mini:hover{border-color:#ff625a}
+  @keyframes sosAura{50%{transform:scale(1.08);opacity:.65}}
+
+  .feature-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:28px 0}
+  .feature-card{background:linear-gradient(145deg,#111726,#0d111d);border:1px solid #222b40;border-radius:22px;padding:22px;min-height:170px}
+  .feature-icon{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;background:rgba(91,140,255,.12);font-size:20px;margin-bottom:15px}
+  .feature-card h3{margin:0 0 7px;font-size:19px;letter-spacing:-.025em}.feature-card p{margin:0;color:#8c93a6;line-height:1.5;font-size:13px}
+  .feature-card.red .feature-icon{background:rgba(255,69,58,.12)}.feature-card.green .feature-icon{background:rgba(49,209,88,.12)}.feature-card.violet .feature-icon{background:rgba(118,88,255,.13)}
+
+  .rq-modal{position:fixed;inset:0;z-index:5000;background:rgba(0,0,0,.62);backdrop-filter:blur(16px);display:none;align-items:flex-end;justify-content:center}
+  .rq-modal.open{display:flex}.rq-sheet{width:min(720px,100%);max-height:88vh;background:#0d1220;border:1px solid #252e43;border-radius:28px 28px 0 0;box-shadow:0 -30px 90px rgba(0,0,0,.45);padding:24px;display:flex;flex-direction:column}
+  .rq-sheet-head{display:flex;align-items:center;justify-content:space-between}.rq-sheet h2{margin:0;font-size:24px;letter-spacing:-.035em}.rq-close{border:0;background:#171d2b;color:#b9c0cf;border-radius:50%;width:36px;height:36px;cursor:pointer}
+  .ai-messages{overflow:auto;display:flex;flex-direction:column;gap:12px;padding:18px 0;min-height:240px}.ai-bubble{max-width:85%;padding:13px 15px;border-radius:17px;line-height:1.5;font-size:14px}.ai-bubble.ai{align-self:flex-start;background:#171e2d;color:#e8ebf2}.ai-bubble.user{align-self:flex-end;background:linear-gradient(135deg,#5b8cff,#7658ff);color:#fff}
+  .ai-form{display:flex;gap:9px}.ai-form input{flex:1;background:#111827;border:1px solid #293247;color:#fff;border-radius:14px;padding:13px 14px;outline:none}.ai-form button{border:0;border-radius:14px;padding:0 18px;background:#fff;color:#0a0e1a;font-weight:750;cursor:pointer}
+
+  .health-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:14px}.metric{padding:16px;border-radius:17px;background:#111726;border:1px solid #232d42}.metric span{display:block;color:#7f879a;font-size:11px;margin-bottom:7px}.metric strong{font-size:22px}.metric small{color:#31d158;font-size:11px}
+  .tracker-note{margin-top:12px;color:#777f92;font-size:12px;line-height:1.5}
+  .medicine-list{display:grid;gap:10px;margin-top:16px}.medicine{display:flex;gap:12px;align-items:center;padding:14px 16px;border-radius:16px;background:#111726;border:1px solid #232d42}.medicine .pill{width:38px;height:38px;border-radius:12px;background:rgba(49,209,88,.12);display:grid;place-items:center}.medicine .med-info{flex:1}.medicine b{display:block;font-size:14px}.medicine small{color:#7f879a}.price{font-weight:750;color:#31d158}
+  .reminder-form{display:flex;gap:9px;flex-wrap:wrap;margin-top:14px}.reminder-form input{flex:1;min-width:130px;background:#111726;border:1px solid #293247;border-radius:12px;padding:11px;color:#fff}.reminder-form button{background:#fff;border:0;border-radius:12px;padding:11px 16px;font-weight:700}
+  .resqid-box{display:flex;align-items:center;gap:18px;padding:20px;border-radius:20px;background:linear-gradient(135deg,rgba(91,140,255,.12),rgba(118,88,255,.08));border:1px solid #2b3853}.resqid-code{font:800 22px ui-monospace,monospace;letter-spacing:.08em;color:#fff}.resqid-actions{display:flex;gap:8px;margin-left:auto;flex-wrap:wrap}.resqid-actions button{
+  border:1px solid rgba(255,255,255,.10);
+  background:rgba(255,255,255,.055);
+  color:#fff;
+  border-radius:11px;
+  padding:9px 13px;
+  cursor:pointer;
+  font-weight:650;
+  transition:.2s ease;
+}
+
+.resqid-actions button:hover{
+  background:rgba(255,255,255,.10);
+  border-color:rgba(91,140,255,.35);
+  transform:translateY(-1px);
+}
+  .hospital-call{background:#31d158!important;color:#061109!important}
+  @media(max-width:760px){.feature-grid{grid-template-columns:1fr}.health-grid{grid-template-columns:repeat(2,1fr)}.sos-main-btn{width:138px;height:138px}.resqid-box{align-items:flex-start;flex-direction:column}.resqid-actions{margin-left:0}}
+</style>
+
+
+<style id="resq-final-polish">
+html{scroll-behavior:smooth}
+body{overflow-x:hidden}
+.reveal{opacity:0;transform:translateY(34px) scale(.985);transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1)}
+.reveal.visible{opacity:1;transform:none}
+.reveal-left{opacity:0;transform:translateX(-38px);transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1)}
+.reveal-left.visible{opacity:1;transform:none}
+.reveal-right{opacity:0;transform:translateX(38px);transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1)}
+.reveal-right.visible{opacity:1;transform:none}
+.section-divider{height:1px;background:linear-gradient(90deg,transparent,#2a344b,transparent);margin:48px 0}
+.locate-btn{box-shadow:0 10px 30px rgba(91,140,255,.18);transition:transform .25s,box-shadow .25s}
+.locate-btn:hover{transform:translateY(-2px);box-shadow:0 15px 38px rgba(91,140,255,.28)}
+.precision-note{display:flex;align-items:center;justify-content:center;gap:7px;margin-top:10px;color:#697286;font-size:11px}
+.precision-dot{width:6px;height:6px;border-radius:50%;background:#31d158;box-shadow:0 0 0 4px rgba(49,209,88,.08)}
+.location-status{display:flex;justify-content:center;gap:8px;align-items:center;margin-top:8px;font-size:12px;color:#8c93a6}
+.location-status .pulse{width:7px;height:7px;border-radius:50%;background:#5b8cff;animation:locpulse 1.6s infinite}
+@keyframes locpulse{50%{box-shadow:0 0 0 7px rgba(91,140,255,.0);opacity:.45}}
+.resqid-box.generated{border-color:rgba(49,209,88,.45);box-shadow:0 12px 40px rgba(49,209,88,.06)}
+.resqid-success{font-size:11px;color:#31d158;margin-top:5px;min-height:14px}
+.ai-typing{display:flex;gap:4px;align-items:center}.ai-typing i{width:5px;height:5px;background:#8790a5;border-radius:50%;animation:typing .9s infinite}.ai-typing i:nth-child(2){animation-delay:.15s}.ai-typing i:nth-child(3){animation-delay:.3s}
+@keyframes typing{50%{transform:translateY(-3px);opacity:.45}}
+.intro-skip{position:absolute;right:28px;bottom:28px;color:#737c90;background:transparent;border:0;font:500 12px Inter,sans-serif;cursor:pointer}
+@media(prefers-reduced-motion:reduce){.reveal,.reveal-left,.reveal-right{opacity:1;transform:none;transition:none}}
+</style>
+
+
+<style id="resq-medical-v2">
+  .medical-onboard{position:fixed;inset:0;z-index:10000;display:none;align-items:center;justify-content:center;background:rgba(4,7,13,.82);backdrop-filter:blur(22px);padding:18px}
+  .medical-onboard.open{display:flex}
+  .onboard-card{width:min(780px,100%);max-height:92vh;overflow:auto;background:linear-gradient(145deg,#111827,#0b101b);border:1px solid #29344a;border-radius:30px;padding:28px;box-shadow:0 35px 120px rgba(0,0,0,.55)}
+  .onboard-brand{display:flex;align-items:center;gap:12px;margin-bottom:22px}.onboard-logo{width:46px;height:46px;border-radius:14px;background:linear-gradient(145deg,#5b8cff,#7658ff);display:grid;place-items:center;color:white;font-weight:900}
+  .onboard-card h2{font-size:30px;letter-spacing:-.045em;margin:0 0 8px}.onboard-card .lead{color:#8992a6;line-height:1.55;margin:0 0 24px}
+  .medical-form{display:grid;grid-template-columns:1fr 1fr;gap:13px}.medical-field{display:flex;flex-direction:column;gap:7px}.medical-field.full{grid-column:1/-1}.medical-field label{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:#7d879b;font-weight:700}
+  .medical-field input,.medical-field select,.medical-field textarea{width:100%;box-sizing:border-box;background:#0c1220;color:#fff;border:1px solid #29344a;border-radius:13px;padding:13px 14px;font:500 14px Inter,sans-serif;outline:none;transition:border-color .18s,box-shadow .18s}
+  .medical-field textarea{min-height:82px;resize:vertical}.medical-field input:focus,.medical-field select:focus,.medical-field textarea:focus{border-color:#5b8cff;box-shadow:0 0 0 4px rgba(91,140,255,.09)}
+  .onboard-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:20px}.primary-action,.secondary-action{border:0;border-radius:13px;padding:12px 18px;font-weight:750;cursor:pointer}.primary-action{background:linear-gradient(135deg,#5b8cff,#7658ff);color:#fff;box-shadow:0 12px 30px rgba(91,140,255,.2)}.secondary-action{background:#171e2c;color:#aab2c2;border:1px solid #29344a}
+  .medical-note{font-size:11px;color:#697286;margin-top:14px;line-height:1.5}
+  .id-lock{display:flex;align-items:center;gap:10px;padding:12px 14px;background:rgba(255,255,255,.025);border:1px solid #263149;border-radius:13px;margin-top:16px;color:#929bad;font-size:12px}
+  .id-profile{display:none;margin-top:14px}.id-profile.visible{display:block}
+  .instant{will-change:transform,opacity}.instant *{scroll-behavior:auto}
+  @media(max-width:620px){.medical-form{grid-template-columns:1fr}.medical-field.full{grid-column:auto}.onboard-card{padding:22px}.onboard-card h2{font-size:25px}}
+  @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+
+
+<style id="resq-performance">
+button,a,input,select,textarea{touch-action:manipulation}
+button{transition:transform .12s ease,opacity .12s ease,box-shadow .12s ease}
+button:active{transform:scale(.985)}
+</style>
+
+
+<style id="guest-mode-style">
+  .guest-pill{display:inline-flex;align-items:center;gap:7px;padding:7px 11px;border:1px solid #29344a;background:#111827;border-radius:999px;color:#aeb7c8;font-size:11px;font-weight:700}
+  .guest-dot{width:6px;height:6px;border-radius:50%;background:#31d158;box-shadow:0 0 0 4px rgba(49,209,88,.08)}
+  .guest-banner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:13px 16px;margin:0 0 22px;border:1px solid #27334a;border-radius:16px;background:linear-gradient(100deg,rgba(91,140,255,.08),rgba(118,88,255,.06))}
+  .guest-banner p{margin:0;color:#8d96a9;font-size:12px;line-height:1.45}
+  .guest-banner strong{display:block;color:#e8ebf2;font-size:13px;margin-bottom:2px}
+  .guest-action{border:0;background:#fff;color:#0a0e1a;border-radius:10px;padding:9px 13px;font-weight:750;cursor:pointer;white-space:nowrap}
+  .profile-gate-note{font-size:11px;color:#697286;margin-top:8px;line-height:1.45}
+  @media(max-width:620px){.guest-banner{align-items:flex-start;flex-direction:column}.guest-action{width:100%}}
+</style>
+
+
+
+
+
+
+<style id="resq-id-reminder-style">
+.resq-id-reminder{
+  position:fixed;right:22px;bottom:22px;z-index:9999;width:min(360px,calc(100vw - 32px));
+  padding:16px 16px 15px;border:1px solid rgba(91,140,255,.24);border-radius:16px;
+  background:rgba(15,20,34,.96);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  box-shadow:0 16px 50px rgba(0,0,0,.38);color:#F5F6F8;animation:resqReminderIn .28s ease-out;
+}
+.resq-id-reminder-title{font-size:13px;font-weight:700;margin-bottom:5px}
+.resq-id-reminder-text{font-size:12px;line-height:1.5;color:#AAB2C4}
+.resq-id-reminder-actions{display:flex;gap:8px;margin-top:12px}
+.resq-id-reminder-actions button{border:0;border-radius:10px;padding:8px 12px;font:600 12px inherit;cursor:pointer}
+.resq-id-reminder-create{background:#5B8CFF;color:#fff}
+.resq-id-reminder-close{background:rgba(255,255,255,.07);color:#C9CFDC}
+@keyframes resqReminderIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:520px){.resq-id-reminder{right:16px;bottom:16px;width:calc(100vw - 32px)}}
+@media(prefers-reduced-motion:reduce){.resq-id-reminder{animation:none}}
+</style>
+<style id="resq-light-theme">
+
+body.light-theme{
+  --bg:#f6f8fc;
+  --surface:#ffffff;
+  --surface2:#f8faff;
+  --surface3:#eef2f8;
+  --line:rgba(15,23,42,.085);
+  --text:#101828;
+  --muted:#667085;
+  --blue:#4f7fff;
+  --violet:#7357e8;
+
+  background:
+    radial-gradient(900px 520px at 78% -12%,rgba(118,88,255,.12),transparent 62%),
+    radial-gradient(800px 520px at 0% 28%,rgba(79,127,255,.075),transparent 64%),
+    linear-gradient(180deg,#f9fbff 0%,#f5f7fb 48%,#f7f9fc 100%);
+
+  color:#101828;
+  color-scheme:light;
+}
+
+body.light-theme,
+body.light-theme *{
+  scrollbar-color:#cbd3e1 transparent;
+}
+
+body.light-theme ::selection{
+  background:rgba(91,140,255,.20);
+  color:#101828;
+}
+
+body.light-theme .shell{
+  color:#101828;
+}
+
+body.light-theme .nav,
+body.light-theme .top-nav{
+  background:rgba(249,251,255,.78)!important;
+  border-bottom:1px solid rgba(15,23,42,.075)!important;
+  box-shadow:0 8px 30px rgba(15,23,42,.035);
+  backdrop-filter:blur(24px);
+  -webkit-backdrop-filter:blur(24px);
+}
+
+body.light-theme .navlinks button{
+  color:#667085;
+}
+
+body.light-theme .navlinks button:hover,
+body.light-theme .navlinks button.active{
+  color:#101828;
+  background:rgba(15,23,42,.055);
+}
+
+body.light-theme .brand,
+body.light-theme .brand strong{
+  color:#101828;
+}
+
+body.light-theme .mini-status{
+  color:#344054;
+}
+
+body.light-theme .card,
+body.light-theme .feature-card,
+body.light-theme .onboard-card{
+  background:linear-gradient(145deg,rgba(255,255,255,.98),rgba(247,249,253,.98))!important;
+  border-color:rgba(15,23,42,.085)!important;
+  box-shadow:0 18px 55px rgba(15,23,42,.055),0 2px 8px rgba(15,23,42,.025)!important;
+}
+
+body.light-theme .hero{
+  background:radial-gradient(520px 300px at 50% 35%,rgba(118,88,255,.08),transparent 72%);
+}
+
+body.light-theme .hero h1{
+  color:#101828!important;
+}
+
+body.light-theme .hero .gradient{
+  background:linear-gradient(100deg,#5b8cff 0%,#7658ff 55%,#a06cff 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+body.light-theme .hero p,
+body.light-theme .hero .desc{
+  color:#667085!important;
+}
+
+body.light-theme .trust{
+  color:#7b8495;
+}
+
+body.light-theme .ai-card{
+  background:
+    radial-gradient(520px 260px at 88% 0%,rgba(118,88,255,.13),transparent 65%),
+    radial-gradient(420px 260px at 0% 100%,rgba(91,140,255,.075),transparent 65%),
+    linear-gradient(145deg,#ffffff,#f7f9ff)!important;
+  border-color:rgba(91,140,255,.14)!important;
+  box-shadow:0 25px 70px rgba(61,79,130,.09),inset 0 1px 0 rgba(255,255,255,.9)!important;
+}
+
+body.light-theme .ai-card h2,
+body.light-theme .ai-card h3{
+  color:#101828;
+}
+
+body.light-theme .ai-card p{
+  color:#667085;
+}
+
+body.light-theme .btn{
+  color:#101828;
+  background:rgba(255,255,255,.72);
+  border-color:rgba(15,23,42,.10);
+  box-shadow:0 5px 18px rgba(15,23,42,.035);
+}
+
+body.light-theme .btn:hover{
+  background:#ffffff;
+  border-color:rgba(15,23,42,.15);
+  box-shadow:0 8px 25px rgba(15,23,42,.07);
+}
+
+body.light-theme .btn.primary{
+  color:#ffffff;
+  background:linear-gradient(135deg,#4f7fff,#7357e8);
+  border-color:transparent;
+  box-shadow:0 12px 28px rgba(79,127,255,.22);
+}
+
+body.light-theme .quick button{
+  background:linear-gradient(145deg,rgba(255,255,255,.96),rgba(248,250,253,.96));
+  color:#101828;
+  border-color:rgba(15,23,42,.085);
+  box-shadow:0 10px 30px rgba(15,23,42,.045);
+}
+
+body.light-theme .quick button:hover{
+  border-color:rgba(91,140,255,.25);
+  box-shadow:0 16px 38px rgba(15,23,42,.075);
+}
+
+body.light-theme .quick button small{
+  color:#667085;
+}
+
+body.light-theme .sos-hero{
+  background:
+    radial-gradient(circle at 50% -10%,rgba(255,47,134,.14),transparent 42%),
+    radial-gradient(circle at 10% 90%,rgba(255,47,134,.055),transparent 48%),
+    linear-gradient(145deg,#ffffff 0%,#fff8fb 55%,#fff3f8 100%)!important;
+  border:1px solid rgba(255,47,134,.18)!important;
+  box-shadow:0 25px 80px rgba(255,47,134,.075),0 4px 15px rgba(15,23,42,.035)!important;
+}
+
+body.light-theme .sos-kicker{
+  color:#d82c70;
+}
+
+body.light-theme .sos-title{
+  color:#101828;
+}
+
+body.light-theme .sos-sub{
+  color:#667085;
+}
+
+body.light-theme .sos-main-btn{
+  background:linear-gradient(145deg,#ff63aa,#ff2f86 55%,#d51c67)!important;
+  color:#fff;
+  box-shadow:0 0 0 10px rgba(255,47,134,.055),0 0 0 22px rgba(255,47,134,.025),0 25px 60px rgba(255,47,134,.28),inset 0 2px 2px rgba(255,255,255,.30)!important;
+}
+
+body.light-theme .sos-mini{
+  background:rgba(255,255,255,.82);
+  color:#101828;
+  border-color:rgba(15,23,42,.10);
+}
+
+body.light-theme .section-head h2,
+body.light-theme .section-head h3{
+  color:#101828;
+}
+
+body.light-theme .section-head p{
+  color:#667085;
+}
+
+body.light-theme .hospital,
+body.light-theme .price-row,
+body.light-theme .contact{
+  background:linear-gradient(145deg,#ffffff,#f8faff)!important;
+  border-color:rgba(15,23,42,.085)!important;
+  box-shadow:0 8px 24px rgba(15,23,42,.035);
+}
+
+body.light-theme .hospital b,
+body.light-theme .hospital strong,
+body.light-theme .price-row .pname,
+body.light-theme .contact b{
+  color:#101828!important;
+}
+
+body.light-theme .hospital small,
+body.light-theme .contact small{
+  color:#667085;
+}
+
+body.light-theme .call{
+  background:rgba(91,140,255,.075);
+  color:#416fe0;
+  border-color:rgba(91,140,255,.12);
+}
+
+body.light-theme #map{
+  border:1px solid rgba(15,23,42,.10);
+  box-shadow:0 18px 50px rgba(15,23,42,.07);
+}
+
+body.light-theme .resqid,
+body.light-theme .resqid-box{
+  background:linear-gradient(135deg,#f4f7ff,#f9f7ff)!important;
+  border-color:rgba(91,140,255,.18)!important;
+}
+
+body.light-theme .resqid .id,
+body.light-theme .resqid-code{
+  color:#101828!important;
+}
+
+body.light-theme .resqid-actions button{
+  background:#ffffff;
+  color:#101828;
+  border-color:rgba(15,23,42,.10);
+}
+
+body.light-theme .contact-remove{
+  background:#fff!important;
+  color:#667085!important;
+  border:1px solid rgba(15,23,42,.12)!important;
+}
+
+body.light-theme .medicine,
+body.light-theme .rem-item{
+  background:linear-gradient(145deg,#ffffff,#f8faff)!important;
+  border-color:rgba(15,23,42,.085)!important;
+  box-shadow:0 8px 24px rgba(15,23,42,.035);
+}
+
+body.light-theme .medicine b,
+body.light-theme .rem-item .rname{
+  color:#101828;
+}
+
+body.light-theme .medicine small,
+body.light-theme .rem-item .rtime{
+  color:#667085;
+}
+
+body.light-theme input,
+body.light-theme select,
+body.light-theme textarea{
+  background:#ffffff!important;
+  color:#101828!important;
+  border-color:rgba(15,23,42,.11)!important;
+}
+
+body.light-theme input::placeholder,
+body.light-theme textarea::placeholder{
+  color:#98a2b3;
+}
+
+body.light-theme .rq-sheet,
+body.light-theme .modal-box,
+body.light-theme .onboard-card{
+  background:linear-gradient(145deg,#ffffff,#f7f9fd)!important;
+  border-color:rgba(15,23,42,.10)!important;
+}
+
+body.light-theme .rq-sheet h2,
+body.light-theme .onboard-card h2{
+  color:#101828;
+}
+
+body.light-theme .ai-bubble.ai{
+  background:#edf1f7;
+  color:#101828;
+}
+
+body.light-theme .guest-banner{
+  background:linear-gradient(100deg,rgba(91,140,255,.075),rgba(118,88,255,.055))!important;
+  border-color:rgba(91,140,255,.13)!important;
+}
+
+body.light-theme .guest-banner strong{
+  color:#101828;
+}
+
+body.light-theme .guest-banner p{
+  color:#667085;
+}
+
+body.light-theme .resq-id-reminder{
+  background:rgba(255,255,255,.96)!important;
+  color:#101828!important;
+  border-color:rgba(91,140,255,.18)!important;
+  box-shadow:0 18px 55px rgba(15,23,42,.15)!important;
+}
+
+body.light-theme .resq-id-reminder-text{
+  color:#667085!important;
+}
+
+body.light-theme .theme-toggle{
+  background:rgba(15,23,42,.055)!important;
+  border-color:rgba(15,23,42,.10)!important;
+  color:#101828!important;
+  box-shadow:inset 0 1px 1px rgba(255,255,255,.8);
+}
+
+body.light-theme .theme-toggle:hover{
+  background:rgba(15,23,42,.09)!important;
+}
+
+body,
+body .nav,
+body .top-nav,
+body .card,
+body .feature-card,
+body .quick button,
+body .hospital,
+body .contact,
+body .price-row,
+body .medicine,
+body .rem-item,
+body .sos-hero,
+body .resqid,
+body .resqid-box,
+body .onboard-card,
+body .rq-sheet,
+body input,
+body select,
+body textarea{
+  transition:
+    background .4s ease,
+    background-color .4s ease,
+    border-color .4s ease,
+    color .4s ease,
+    box-shadow .4s ease;
+}
+
+</style>
+</head>
+<body>
+
+<div class="guest-banner" id="guestBanner">
+  <div>
+    <strong>You're using ResQVerse as a Guest</strong>
+    <p>Explore emergency tools, hospitals, ResQ AI and healthcare discovery now. Create your ResQ ID later when you're ready.</p>
+  </div>
+  <button class="guest-action" id="createProfileGuest">Create ResQ ID</button>
+</div>
+
+
+<div id="resq-brand-intro" aria-label="ResQVerse AI">
+  <div class="intro-grid"></div>
+  <div class="intro-orb"></div>
+  <div class="brand">
+    <div class="mark">
+      <svg viewBox="0 0 64 64" fill="none" aria-hidden="true">
+        <path d="M32 9c-8.8 0-16 7.2-16 16 0 5.2 2.5 9.8 6.5 12.7L19 52l13-7 13 7-3.5-14.3C45.5 34.8 48 30.2 48 25 48 16.2 40.8 9 32 9Z" stroke="white" stroke-width="4" stroke-linejoin="round"/>
+        <path d="M32 18v14M25 25h14" stroke="white" stroke-width="4" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="wordmark">ResQVerse AI</div>
+    <div class="tagline">Intelligent emergency care</div>
+  </div>
+  <div class="progress"></div>
+  <button class="intro-skip" id="introSkip">Skip</button>
+</div>
+
+<div class="shell">
+<nav class="nav"><div class="brand"><div class="mark"><svg viewBox="0 0 24 24" fill="none"><path d="M12 4v16M4 12h16" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg></div>ResQVerse AI</div><div class="navlinks"><button class="active" onclick="scrollToId('home')">Overview</button><button onclick="scrollToId('health')">Healthcare</button><button onclick="scrollToId('priceCompare')">Pharmacy</button><button onclick="scrollToId('contacts')">Contacts</button><button onclick="scrollToId('resqid')">ResQ ID</button></div><div class="mini-status">
+  <i class="live"></i>
+  <span id="authStatus">Guest mode</span>
+
+  <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch theme">
+    <span id="themeIcon">☀</span>
+  </button>
+
+  <button class="btn" id="authBtn" type="button" style="margin-left:8px;padding:8px 12px;font-size:10px">
+    Account
+  </button>
+</div></nav>
+<section class="hero" id="home"><div><div class="eyebrow"><i class="live"></i> Intelligent emergency companion</div><h1>Your health.<br><span class="gradient">Connected to help.</span></h1><p>Emergency assistance, nearby healthcare and intelligent guidance — designed around one simple idea: when something goes wrong, getting help should feel effortless.</p><div class="actions"><button class="btn ai" onclick="openAI()">Talk to ResQ AI</button><button class="btn" onclick="scrollToId('emergency')">Emergency help</button></div><div class="trust">Private by design · Fast access · Human care comes first</div></div></section>
+<div class="dashboard"><section class="card ai-card" id="ai"><div class="pad"><div class="orb"><svg width="34" height="34" viewBox="0 0 24 24" fill="none"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.64 5.64l2.12 2.12M16.24 16.24l2.12 2.12M18.36 5.64l-2.12 2.12M7.76 16.24l-2.12 2.12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.8"/></svg></div><div class="label">ResQ AI</div><div class="title">A calmer way to figure out what to do next.</div><p class="desc">Describe what you're experiencing. ResQ AI runs through the secure server integration and can provide general guidance without pretending to diagnose you.</p><div class="prompts"><button class="prompt" onclick="openAI('I am having a medical problem')">I have a medical problem</button><button class="prompt" onclick="openAI('I need emergency assistance')">I need emergency assistance</button><button class="prompt" onclick="openAI('Find healthcare near me')">Find healthcare near me</button></div></div></section>
+<section class="card sos-card" id="emergencyQuick"><div class="label">Immediate assistance</div><div class="sos-ring"><button class="sos" onclick="call112()">SOS</button></div><p class="sos-caption" id="sosText">Call 112 immediately. This button connects directly to India’s emergency number.</p></section></div>
+<div class="quick"><button onclick="scrollToId('health')"><div class="icon">⌖</div><b>Nearby care</b><small>Hospitals & facilities</small></button><button onclick="openAI('Help me assess my symptoms')"><div class="icon">✦</div><b>Symptom guide</b><small>AI-powered triage</small></button><button onclick="scrollToId('resqid')"><div class="icon">▦</div><b>ResQ ID</b><small>Emergency profile</small></button><button onclick="scrollToId('contacts')"><div class="icon">♡</div><b>Contacts</b><small>People you trust</small></button></div>
+<section class="card section map-card" id="health"><div class="pad"><div class="section-head"><div><div class="label">Healthcare network</div><h2>Help around you.</h2><p>Live hospital data from OpenStreetMap.</p></div><button class="btn ai" onclick="locate()">Use my location</button></div>
+<section class="sos-hero" id="emergency">
+  <div class="sos-kicker">Emergency response</div>
+  <h2 class="sos-title">Need help right now?</h2>
+  <p class="sos-sub">Activate ResQ SOS to share your live location with your saved emergency contacts and configured emergency facilities.</p>
+  <button class="sos-main-btn" id="v2SosBtn">SOS</button>
+  <div class="sos-actions">
+    <button class="sos-mini" id="v2HospitalBtn">🏥 Nearby emergency hospitals</button>
+    <button class="sos-mini" id="v2ContactsBtn">👥 Emergency contacts</button>
+  </div>
+  <p id="v2SosStatus" class="tracker-note">Configure your emergency contacts and hospital numbers before relying on this feature.</p>
+</section>
+
+<div id="map"></div><div class="mapbar"><span id="status" class="status">Location not selected yet.</span><span class="status">Radius · 7 km</span></div><div id="hospitalList" class="hospital-list"><div class="empty">Allow location access to discover nearby hospitals.</div></div></div></section>
+<div class="two section"><section class="card" id="resqid"><div class="pad"><div class="section-head"><div><div class="label">Emergency profile</div><h2>ResQ ID</h2><p>Your secure emergency identity.</p></div><span class="label">Private</span></div><div class="profile"><div class="box"><label>Blood group</label><strong id="profileBloodDisplay">Not added</strong></div><div class="box"><label>Allergies</label><strong id="profileAllergiesDisplay">Not added</strong></div><div class="box"><label>Emergency status</label><strong class="ready" id="profileStatusDisplay">Guest</strong></div><div class="box"><label>Profile</label><strong id="profileTypeDisplay">Local profile</strong></div></div><div class="resqid"><div><span class="label">ResQ ID</span><div class="id" id="resqIdCode">Not generated</div><div id="resqIdSuccess" style="font-size:10px;color:#46d68a;margin-top:6px;min-height:13px"></div><div style="display:flex;gap:7px;margin-top:10px"><button class="btn" id="generateResqId" type="button">✓ ID Active</button><button class="btn" id="copyResqId" type="button">Copy</button></div></div><canvas class="qr" id="resqQr" width="108" height="108" aria-label="ResQ ID QR code"></canvas></div></div></section>
+<section class="card" id="contacts"><div class="pad"><div class="section-head"><div><div class="label">People you trust</div><h2>Emergency contacts</h2><p>Saved to your ResQ account when signed in; guest contacts remain on this device.</p></div></div><div id="contactList" class="contacts"></div><div class="contact-form"><input id="name" placeholder="Name"><input id="phone" placeholder="Phone"><button onclick="addContact()">Add</button></div></div></section></div>
+
+<div class="two section" id="extraFeatures">
+<section class="card" id="priceCompare"><div class="pad"><div class="section-head"><div><div class="label">Compare &amp; save</div><h2>Nearby pharmacies</h2>
+<p>Find real pharmacies near you with distance, calling and navigation.</p></div></div>
+
+<div style="margin-bottom:18px">
+  <button class="btn ai" onclick="findNearbyPharmacies()" style="width:100%;justify-content:center">Find nearby pharmacies (real, uses your location)</button>
+  <p class="rem-permission" id="pharmacyStatus" style="margin-top:8px"></p>
+  <div class="price-list" id="pharmacyList"></div>
+</div>
+
+</div></section>
+<section class="card" id="reminders"><div class="pad"><div class="section-head"><div><div class="label">Stay on schedule</div><h2>Medicine reminders</h2><p>Browser notification when it's time.</p></div></div>
+<p class="rem-permission" id="notifPermissionMsg"></p>
+<div class="rem-form"><input type="text" id="reminderName" placeholder="Medicine name"><input type="time" id="reminderTime"><button onclick="addReminder()">Add</button></div>
+<div id="reminderList"></div>
+</div></section>
+</div>
+
+</div>
+<div id="toast" class="toast"></div>
+<div id="authModal" class="modal" onclick="if(event.target===this)closeAuth()"><div class="modal-box"><div class="modal-top"><div><div class="label">ResQ Account</div><div class="title" id="authTitle">Create your secure account.</div></div><button class="close" onclick="closeAuth()">×</button></div><p class="desc" id="authSubtitle">Sign in to save your medical profile and emergency contacts securely.</p><div style="display:grid;gap:10px;margin-top:16px"><input id="authName" placeholder="Name (for signup)" style="background:#070b13;border:1px solid var(--line);border-radius:10px;padding:12px;color:#fff"><input id="authEmail" type="email" placeholder="Email" autocomplete="email" style="background:#070b13;border:1px solid var(--line);border-radius:10px;padding:12px;color:#fff"><input id="authPassword" type="password" placeholder="Password (8+ characters)" autocomplete="new-password" style="background:#070b13;border:1px solid var(--line);border-radius:10px;padding:12px;color:#fff"><button class="btn ai" id="authSubmit" type="button">Create account</button><button class="btn" id="authSwitch" type="button">Already have an account? Sign in</button><button class="btn" id="authLogout" type="button" style="display:none">Sign out</button><div id="authMessage" class="desc"></div></div></div></div>
+<div id="aiModal" class="modal" onclick="if(event.target===this)closeAI()"><div class="modal-box"><div class="modal-top"><div><div class="label">ResQ AI</div><div class="title">Tell me what’s happening.</div></div><button class="close" onclick="closeAI()">×</button></div>
+<div id="chat" class="chat"><div class="bubble ai">Hi. I can help you organize what you're experiencing and identify whether it may need urgent attention. I can't diagnose a medical condition.</div></div><div class="chat-input"><input id="aiInput" placeholder="Describe what you're experiencing…" onkeydown="if(event.key==='Enter')sendAI()"><button onclick="sendAI()">Send</button></div></div></div>
+<script>
+  (function initTheme(){
+  const body = document.body;
+  const toggle = document.getElementById('themeToggle');
+  const icon = document.getElementById('themeIcon');
+
+  function applyTheme(theme){
+    const isLight = theme === 'light';
+
+    body.classList.toggle('light-theme', isLight);
+
+    if(icon){
+      icon.textContent = isLight ? '☾' : '☀';
+    }
+
+    if(toggle){
+      toggle.setAttribute(
+        'aria-label',
+        isLight ? 'Switch to dark theme' : 'Switch to light theme'
+      );
+    }
+
+    localStorage.setItem('rq_theme', isLight ? 'light' : 'dark');
+  }
+
+  const savedTheme = localStorage.getItem('rq_theme') || 'dark';
+  applyTheme(savedTheme);
+
+  if(toggle){
+    toggle.addEventListener('click',()=>{
+      const nextTheme =
+        body.classList.contains('light-theme')
+          ? 'dark'
+          : 'light';
+
+      applyTheme(nextTheme);
+    });
+  }
+})();
+const map=L.map('map',{zoomControl:false}).setView([26.8467,80.9462],5);L.control.zoom({position:'bottomright'}).addTo(map);L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}',{attribution:'Tiles &copy; Esri',maxZoom:19}).addTo(map);let userMarker=null,markers=[];
+function scrollToId(id){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'})}
+function toast(t){const x=document.getElementById('toast');x.textContent=t;x.classList.add('show');clearTimeout(window.__toast);window.__toast=setTimeout(()=>x.classList.remove('show'),2800)}
+function openAI(seed=''){document.getElementById('aiModal').classList.add('show');setTimeout(()=>{const i=document.getElementById('aiInput');i.focus();if(seed){i.value=seed}},80)}function closeAI(){document.getElementById('aiModal').classList.remove('show')}
+function formatAIResponse(text){
+  return escapeHtml(text)
+    .replace(/^### (.*)$/gm, '<h3>$1</h3>')
+    .replace(/^## (.*)$/gm, '<h3>$1</h3>')
+    .replace(/^# (.*)$/gm, '<h3>$1</h3>')
+    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+    .replace(/`([^`]+)`/g, '<code>$1</code>')
+    .replace(/^\s*[-*] (.*)$/gm, '<li>$1</li>')
+    .replace(/^\s*(\d+)\. (.*)$/gm, '<li>$2</li>')
+    .replace(/\n{2,}/g, '<br><br>')
+    .replace(/\n/g, '<br>');
+}
+async function sendAI(){
+ const i=document.getElementById('aiInput'), text=i.value.trim(); if(!text)return;
+ const c=document.getElementById('chat'); const u=document.createElement('div'); u.className='bubble user'; u.textContent=text; c.appendChild(u); i.value='';
+ const t=document.createElement('div'); t.className='bubble ai'; t.textContent='Thinking…'; c.appendChild(t); c.scrollTop=c.scrollHeight;
+ window.__rqChat=window.__rqChat||[]; window.__rqChat.push({role:'user',content:text});
+ function fallbackReply(){
+   const q=text.toLowerCase();
+   let fallback='ResQ AI backend integration is being built. I can still help you with general health information, study, coding, projects, and everyday decisions. For urgent or severe symptoms, use SOS or contact local emergency services.';
+   if(/(sos|emergency|unconscious|not breathing|severe bleeding|chest pain|stroke)/.test(q)) fallback='This may be an emergency. Use the SOS feature now and contact local emergency services. Do not wait for an AI response if someone is in immediate danger.';
+   else if(/(coding|code|programming|javascript|python|c\+\+|java)/.test(q)) fallback='I can help you break the coding problem into steps, explain the concept, debug your approach, and build a practical solution.';
+   else if(/(study|exam|gate|college|career)/.test(q)) fallback='Tell me the subject, deadline, and what you have already covered. I can turn it into a realistic study plan and explain difficult topics step by step.';
+   return fallback;
+ }
+ try{
+   const r=await fetch('/api/ai/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:text,history:window.__rqChat.slice(-12)})});
+   const data=await r.json().catch(()=>({}));
+   if(r.ok && data.reply) t.innerHTML=formatAIResponse(data.reply);
+   else t.textContent=fallbackReply();
+ }catch(e){ t.textContent=fallbackReply(); }
+ window.__rqChat.push({role:'assistant',content:t.textContent});
+ c.scrollTop=c.scrollHeight;
+}
+function distance(a,b,c,d){const R=6371,x=(c-a)*Math.PI/180,y=(d-b)*Math.PI/180,q=Math.sin(x/2)**2+Math.cos(a*Math.PI/180)*Math.cos(c*Math.PI/180)*Math.sin(y/2)**2;return R*2*Math.atan2(Math.sqrt(q),Math.sqrt(1-q))}
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
+async function hospitals(lat,lon){
+  const r = await fetch(`/api/hospitals?lat=${encodeURIComponent(lat)}&lon=${encodeURIComponent(lon)}`);
+
+  if(!r.ok){
+    const error = await r.json().catch(()=>({}));
+    throw new Error(error.message || 'Hospital data unavailable');
+  }
+
+  const data = await r.json();
+
+  return (data.hospitals || [])
+    .map(h => ({
+      ...h,
+      dist: distance(lat, lon, h.lat, h.lon)
+    }))
+    .filter(h => Number.isFinite(h.lat) && Number.isFinite(h.lon))
+    .sort((a,b) => a.dist - b.dist);
+}
+async function locate(){
+  const st=document.getElementById('status');
+  try{
+    const p=await getLocation();
+    const{latitude:lat,longitude:lon}=p.coords;
+    map.setView([lat,lon],14);
+    if(userMarker)map.removeLayer(userMarker);
+    userMarker=L.circleMarker([lat,lon],{radius:9,color:'#fff',weight:3,fillColor:'#72a7ff',fillOpacity:1}).addTo(map).bindPopup('You are here').openPopup();
+    markers.forEach(m=>map.removeLayer(m)); markers=[];
+    st.textContent='Searching nearby hospitals…';
+    try{
+      const hs=await hospitals(lat,lon),list=document.getElementById('hospitalList'); list.innerHTML='';
+      hs.slice(0,8).forEach(h=>{
+  const el=document.createElement('div');
+  el.className='hospital';
+
+  const phone=h.phone ? escapeHtml(h.phone) : '';
+
+  const call=h.phone
+    ? `<a class="call" href="tel:${phone}">Call</a>`
+    : '';
+
+  const navigate=
+    `<a class="call" href="https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(h.lat+','+h.lon)}" target="_blank" rel="noopener">Navigate</a>`;
+
+  el.innerHTML=`
+    <div class="hicon">⌂</div>
+    <div class="info">
+      <b>${escapeHtml(h.name)}</b>
+      <small>${h.dist.toFixed(1)} km away · ${phone || 'Phone unavailable'}</small>
+    </div>
+    <div style="display:flex;gap:6px;flex-wrap:wrap">
+      ${call}
+      ${navigate}
+    </div>
+  `;
+
+  list.appendChild(el);
+
+  markers.push(
+    L.marker([h.lat,h.lon])
+      .addTo(map)
+      .bindPopup(escapeHtml(h.name))
+  );
+});
+      if(!hs.length)list.innerHTML='<div class="empty">No hospitals found within 7 km in the available map data.</div>';
+      st.textContent=`Found ${hs.length} hospital(s) within 7 km.`;
+    }catch(e){st.textContent='Could not load hospital data. Check your connection.';}
+  }catch(e){
+    if(e?.code==='secure') st.textContent='Location needs HTTPS or localhost. If you opened the HTML as file://, run it from a local server.';
+    else if(e?.code===1) st.textContent='Location permission denied. Allow location for this site in browser settings, then try again.';
+    else if(e?.code===2) st.textContent='Location unavailable. Turn on device Location/GPS and try again.';
+    else if(e?.code===3) st.textContent='Location request timed out. Try again with GPS enabled.';
+    else st.textContent='Location access was denied or unavailable.';
+  }
+}
+function render(){
+  const box=document.getElementById('contactList');
+  const cs=contacts();
+
+  box.innerHTML=cs.length
+    ? cs.map(c=>`
+      <div class="contact">
+        <div class="avatar">${escapeHtml(c.name[0].toUpperCase())}</div>
+
+        <div class="ci">
+          <b>${escapeHtml(c.name)}</b>
+          <small>${escapeHtml(c.phone)}</small>
+        </div>
+
+        <div style="display:flex;gap:12px;align-items:center">
+          <a href="https://wa.me/91${c.phone.replace(/\D/g,'')}"
+             target="_blank"
+             rel="noopener">
+            Message
+          </a>
+
+          <button
+            type="button"
+            class="contact-remove"
+            data-contact-id="${escapeHtml(c._id || c.id || '')}">
+            Remove
+          </button>
+        </div>
+      </div>
+    `).join('')
+    : '<div class="empty">No emergency contacts added yet.</div>';
+
+  box.querySelectorAll('.contact-remove').forEach(button=>{
+    button.addEventListener('click',()=>removeContact(button.dataset.contactId));
+  });
+}
+async function removeContact(contactId){
+  if(!contactId){
+    toast('Could not identify this contact');
+    return;
+  }
+
+  if(!confirm('Remove this emergency contact?')) return;
+
+  try{
+    const me=await fetch('/api/auth/me');
+
+    if(me.ok){
+      const r=await fetch(`/api/contacts/${encodeURIComponent(contactId)}`,{
+        method:'DELETE'
+      });
+
+      const data=await r.json();
+
+      if(!r.ok || !data.ok){
+        throw new Error(data.message || 'Could not remove contact');
+      }
+    }
+
+    const updated=contacts().filter(c=>
+      String(c._id || c.id)!==String(contactId)
+    );
+
+    window.__contactsCache=updated;
+    localStorage.setItem('rq_contacts',JSON.stringify(updated));
+
+    render();
+    toast('Emergency contact removed');
+  }catch(e){
+    console.error(e);
+    toast(e.message || 'Could not remove contact');
+  }
+}
+// ---- Medicine price compare: DEMO DATA ONLY ----
+// No public API exists for local pharmacy prices in India, so this is sample data to
+// demonstrate the feature. Swap this object for real data (manual entry or a partnered
+// pharmacy API) before treating it as production.
+const medicineDB={
+  'paracetamol':[{store:'MedPlus',price:19},{store:'Apollo Pharmacy',price:22},{store:'Local Store — MG Road',price:25},{store:'Wellness Forever',price:21}],
+  'crocin':[{store:'Apollo Pharmacy',price:32},{store:'MedPlus',price:30},{store:'Local Store — MG Road',price:35}],
+  'azithromycin':[{store:'Apollo Pharmacy',price:118},{store:'Wellness Forever',price:109},{store:'MedPlus',price:112}],
+  'dolo 650':[{store:'MedPlus',price:28},{store:'Apollo Pharmacy',price:30},{store:'Local Store — MG Road',price:26}],
+  'cetirizine':[{store:'Wellness Forever',price:15},{store:'MedPlus',price:14},{store:'Apollo Pharmacy',price:17}]
+};
+async function searchMedicine(){
+  const input = document.getElementById('medicineInput');
+  const box = document.getElementById('priceResults');
+
+  const medicine = input.value.trim();
+
+  if(!medicine){
+    box.innerHTML = '<div class="empty">Enter a medicine name to search.</div>';
+    return;
+  }
+
+  box.innerHTML = `
+    <div class="empty">
+      Searching verified medicine information…
+    </div>
+  `;
+
+  try{
+    const response = await fetch('/api/medicine-search', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        medicine
+      })
+    });
+
+    const data = await response.json();
+
+    if(!response.ok || !data.ok){
+      throw new Error(data.message || 'Medicine search failed');
+    }
+
+    const sourceHtml = (data.sources || [])
+      .filter(source => source.url)
+      .slice(0, 5)
+      .map(source => `
+        <a
+          href="${escapeHtml(source.url)}"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="call"
+        >
+          ${escapeHtml(source.title || 'View source')}
+        </a>
+      `)
+      .join('');
+
+    box.innerHTML = `
+      <div class="price-row" style="display:block">
+        <div class="pname" style="margin-bottom:10px">
+          ${escapeHtml(data.medicine)}
+        </div>
+
+        <div style="
+          color:var(--text);
+          line-height:1.6;
+          font-size:13px;
+          white-space:pre-wrap;
+        ">
+          ${escapeHtml(data.reply)}
+        </div>
+
+        ${
+          sourceHtml
+            ? `
+              <div style="
+                margin-top:14px;
+                display:flex;
+                flex-wrap:wrap;
+                gap:8px;
+              ">
+                ${sourceHtml}
+              </div>
+            `
+            : ''
+        }
+      </div>
+    `;
+
+  }catch(error){
+    console.error('Medicine search error:', error);
+
+    box.innerHTML = `
+      <div class="empty">
+        Could not fetch verified medicine information.
+        Please try again.
+      </div>
+    `;
+  }
+}
+window.__contactsCache = [];
+
+function contacts(){
+  return window.__contactsCache.length
+    ? window.__contactsCache
+    : JSON.parse(localStorage.getItem('rq_contacts') || '[]');
+}
+async function loadContacts(){
+  try{
+    const r = await fetch('/api/contacts');
+
+    if(r.ok){
+      const d = await r.json();
+
+      window.__contactsCache = Array.isArray(d.contacts)
+        ? d.contacts
+        : [];
+
+      localStorage.setItem(
+        'rq_contacts',
+        JSON.stringify(window.__contactsCache)
+      );
+
+      render();
+    }
+  }catch(e){
+    console.error('Contacts load error:', e);
+
+    const saved = JSON.parse(
+      localStorage.getItem('rq_contacts') || '[]'
+    );
+
+    window.__contactsCache = Array.isArray(saved)
+      ? saved
+      : [];
+
+    render();
+  }
+}
+loadContacts(); render(); document.getElementById('medicineInput')?.addEventListener('keydown',e=>{if(e.key==='Enter')searchMedicine()});
+
+// ---- Real nearby pharmacies via OpenStreetMap (Overpass API) — free, no key, no scraping ----
+// This finds actual pharmacy/chemist locations near the user. It does NOT and cannot pull
+// live prices from PharmEasy/1mg — browsers block cross-site data pulls like that (CORS),
+// and scraping their site without permission would violate their terms of service.
+async function findNearbyPharmacies(){
+  const status = document.getElementById('pharmacyStatus');
+  const list = document.getElementById('pharmacyList');
+
+  status.textContent = 'Getting your location…';
+  list.innerHTML = '';
+
+  try{
+    const p = await getLocation();
+    const { latitude: lat, longitude: lon } = p.coords;
+
+    status.textContent = 'Searching nearby pharmacies…';
+
+    const r = await fetch(
+      `/api/pharmacies?lat=${encodeURIComponent(lat)}&lon=${encodeURIComponent(lon)}`
+    );
+
+    const data = await r.json();
+
+    if(!r.ok || !data.ok){
+      throw new Error(data.message || 'Pharmacy search failed');
+    }
+
+    const pharmacies = data.pharmacies
+      .map(ph => ({
+        ...ph,
+        dist: distance(lat, lon, ph.lat, ph.lon)
+      }))
+      .sort((a, b) => a.dist - b.dist);
+
+    if(!pharmacies.length){
+      list.innerHTML =
+        '<div class="empty">No pharmacies found within 5km in OpenStreetMap data for your area.</div>';
+      status.textContent = '0 found.';
+      return;
+    }
+
+    list.innerHTML = pharmacies.slice(0, 8).map(ph => {
+  const call = ph.phone
+    ? `<a class="call" href="tel:${escapeHtml(ph.phone)}">Call</a>`
+    : '';
+
+  const navigate =
+    `<a class="call" href="https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(ph.lat+','+ph.lon)}" target="_blank" rel="noopener">Navigate</a>`;
+
+  return `
+    <div class="price-row">
+      <span class="pname">
+        ${escapeHtml(ph.name)}
+        <br>
+        <span style="font-weight:500;color:var(--muted);font-size:10px">
+          ${ph.dist.toFixed(1)} km away
+        </span>
+      </span>
+
+      <div style="display:flex;gap:6px;flex-wrap:wrap">
+        ${call}
+        ${navigate}
+      </div>
+    </div>
+  `;
+}).join('');
+
+    status.textContent =
+      `Found ${pharmacies.length} pharmacy(ies) within 5km.`;
+
+  }catch(e){
+    console.error('Pharmacy error:', e);
+
+    if(e?.code === 'secure'){
+      status.textContent = 'Location needs HTTPS or localhost.';
+    }else if(e?.code === 1){
+      status.textContent = 'Location permission denied. Allow location access.';
+    }else if(e?.code === 2){
+      status.textContent = 'Location unavailable. Turn on GPS/Location.';
+    }else if(e?.code === 3){
+      status.textContent = 'Location request timed out. Try again.';
+    }else{
+      status.textContent = 'Could not fetch pharmacy data. Try again.';
+    }
+  }
+}async function findNearbyPharmacies(){
+  const status=document.getElementById('pharmacyStatus');
+  const list=document.getElementById('pharmacyList');
+
+  status.textContent='Getting your location…';
+  list.innerHTML='';
+
+  try{
+    const p=await getLocation();
+    const {latitude:lat,longitude:lon}=p.coords;
+
+    status.textContent='Searching nearby pharmacies…';
+
+    const r=await fetch(
+      `/api/pharmacies?lat=${encodeURIComponent(lat)}&lon=${encodeURIComponent(lon)}`
+    );
+
+    const data=await r.json();
+
+    if(!r.ok || !data.ok){
+      throw new Error(data.message || 'Pharmacy search failed');
+    }
+
+    const pharmacies=data.pharmacies
+      .map(ph=>({
+        ...ph,
+        dist:distance(lat,lon,ph.lat,ph.lon)
+      }))
+      .sort((a,b)=>a.dist-b.dist);
+
+    if(!pharmacies.length){
+      list.innerHTML=
+        '<div class="empty">No pharmacies found within 5km in OpenStreetMap data for your area.</div>';
+      status.textContent='0 found.';
+      return;
+    }
+
+    list.innerHTML=pharmacies.slice(0,8).map(ph=>{
+      const call=ph.phone
+        ? `<a class="call" href="tel:${escapeHtml(ph.phone)}">Call</a>`
+        : '';
+
+      const navigate=
+        `<a class="call" href="https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(ph.lat+','+ph.lon)}" target="_blank" rel="noopener">Navigate</a>`;
+
+      return `
+        <div class="price-row">
+          <span class="pname">
+            ${escapeHtml(ph.name)}
+            <br>
+            <span style="font-weight:500;color:var(--muted);font-size:10px">
+              ${ph.dist.toFixed(1)} km away
+            </span>
+          </span>
+
+          <div style="display:flex;gap:6px;flex-wrap:wrap">
+            ${call}
+            ${navigate}
+          </div>
+        </div>
+      `;
+    }).join('');
+
+    status.textContent=
+      `Found ${pharmacies.length} pharmacy(ies) within 5km.`;
+
+  }catch(e){
+    console.error('Pharmacy error:',e);
+
+    if(e?.code==='secure'){
+      status.textContent='Location needs HTTPS or localhost.';
+    }else if(e?.code===1){
+      status.textContent='Location permission denied. Allow location access.';
+    }else if(e?.code===2){
+      status.textContent='Location unavailable. Turn on GPS/Location.';
+    }else if(e?.code===3){
+      status.textContent='Location request timed out. Try again.';
+    }else{
+      status.textContent='Could not fetch pharmacy data. Try again.';
+    }
+  }
+}
+
+// ---- Medicine reminders: localStorage + browser Notifications ----
+// Note: fires only while this tab/window is open — a real mobile app would use a
+// background service worker or native notifications, which this prototype can't do.
+function reminders(){return JSON.parse(localStorage.getItem('rq_reminders')||'[]')}
+function saveReminders(r){localStorage.setItem('rq_reminders',JSON.stringify(r))}
+function renderReminders(){
+  const list=reminders(), box=document.getElementById('reminderList');
+  box.innerHTML=list.length?list.map((r,i)=>`<div class="rem-item"><div><span class="rname">${escapeHtml(r.name)}</span><span class="rtime">${r.time}</span></div><button class="rremove" data-i="${i}">Remove</button></div>`).join(''):'<div class="empty">No reminders set yet.</div>';
+  box.querySelectorAll('.rremove').forEach(btn=>btn.addEventListener('click',()=>{
+    const list=reminders(); list.splice(Number(btn.dataset.i),1); saveReminders(list); renderReminders();
+  }));
+}
+function updateNotifPermissionMsg(){
+  const msg=document.getElementById('notifPermissionMsg'); if(!msg)return;
+  if(!('Notification' in window)){msg.textContent='This browser does not support notifications.';return;}
+  if(Notification.permission==='granted'){msg.textContent='Notifications are enabled for this app.';}
+  else{msg.innerHTML='Notifications are off. <button id="enableNotifBtn">Enable reminders</button>';document.getElementById('enableNotifBtn').addEventListener('click',()=>Notification.requestPermission().then(updateNotifPermissionMsg));}
+}
+function addReminder(){
+  const name=document.getElementById('reminderName').value.trim(), time=document.getElementById('reminderTime').value;
+  if(!name||!time)return;
+  const list=reminders(); list.push({name,time,lastFiredDate:null}); saveReminders(list);
+  document.getElementById('reminderName').value=''; document.getElementById('reminderTime').value=''; renderReminders();
+}
+updateNotifPermissionMsg(); renderReminders();
+setInterval(()=>{
+  if(!('Notification' in window)||Notification.permission!=='granted')return;
+  const now=new Date(), cur=now.toTimeString().slice(0,5), today=now.toDateString();
+  const list=reminders(); let changed=false;
+  list.forEach(r=>{if(r.time===cur&&r.lastFiredDate!==today){new Notification('ResQVerse AI — Medicine Reminder',{body:`Time to take: ${r.name}`});r.lastFiredDate=today;changed=true;}});
+  if(changed)saveReminders(list);
+},20000);
+async function addContact(){const n=document.getElementById('name').value.trim(),p=document.getElementById('phone').value.trim();if(!n||!p){toast('Enter a name and phone number');return}try{const me=await fetch('/api/auth/me');if(me.ok){const r=await fetch('/api/contacts',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:n,phone:p})});const d=await r.json();if(!r.ok)throw new Error(d.message||'Could not save contact');window.__contactsCache.push(d.contact);localStorage.setItem('rq_contacts',JSON.stringify(window.__contactsCache));}else{const cs=contacts();cs.push({id:crypto.randomUUID?.()||String(Date.now()),name:n,phone:p});window.__contactsCache=cs;localStorage.setItem('rq_contacts',JSON.stringify(cs));}document.getElementById('name').value='';document.getElementById('phone').value='';render();toast('Emergency contact added');}catch(e){toast(e.message||'Could not add contact')}}
+function call112(){
+  window.location.href='tel:112';
+}
+
+function getLocation(options={}){
+  return new Promise((resolve,reject)=>{
+    if(!window.isSecureContext && location.hostname!=='localhost' && location.hostname!=='127.0.0.1'){
+      reject({code:'secure',message:'Location requires HTTPS or localhost.'}); return;
+    }
+    if(!navigator.geolocation){reject({code:'unsupported',message:'Geolocation is not supported.'});return;}
+   navigator.geolocation.getCurrentPosition(
+  resolve,
+  reject,
+  { enableHighAccuracy: true, timeout: 15000, maximumAge: 0, ...options }
+);
+  });
+}
+
+async function sos(){
+  const cs=contacts();
+  if(!cs.length){toast('Add emergency contacts first');scrollToId('contacts');return;}
+  const status=document.getElementById('sosText');
+  status.textContent='Getting your location…';
+  try{
+    const p=await getLocation();
+    const link=`https://maps.google.com/?q=${p.coords.latitude},${p.coords.longitude}`;
+    const text=`EMERGENCY ALERT: I need immediate help. My current location: ${link}`;
+    // Open a WhatsApp message for every saved contact. Browsers may allow only the first tab automatically.
+    cs.forEach((c,i)=>{
+      const digits=c.phone.replace(/\D/g,'');
+      const phone=digits.length===10?'91'+digits:digits;
+      const url=`https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
+      if(i===0) window.location.href=url;
+      else setTimeout(()=>window.open(url,'_blank','noopener'),900*i);
+    });
+    status.textContent=`Emergency location message prepared for ${cs.length} saved contact(s).`;
+    toast('Emergency alert prepared for saved contacts');
+  }catch(e){
+    let msg='Location access failed.';
+    if(e && e.code===1) msg='Location permission denied. Allow location for this site/browser.';
+    else if(e && e.code===2) msg='Location unavailable. Check GPS/location services.';
+    else if(e && e.code===3) msg='Location request timed out. Try again.';
+    else if(e && e.code==='secure') msg='Location needs HTTPS or localhost. Do not open this file directly with file://.';
+    status.textContent=msg;
+    toast(msg);
+  }
+}
+</script>
+
+
+<script id="resqverse-scroll-reveal">
+(() => {
+  const targets = document.querySelectorAll('header,#map,.hospital-list,.sos-hero,.feature-card,#contacts,#priceCompare,#reminders');
+  targets.forEach((el,i)=>{ if(!el.classList.contains('reveal')) el.classList.add(i%3===0?'reveal-left':i%3===1?'reveal':'reveal-right') });
+  if(!('IntersectionObserver' in window)){targets.forEach(x=>x.classList.add('visible'));return}
+  const io=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}})
+  },{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+  targets.forEach(x=>io.observe(x));
+})();
+</script>
+
+
+<script id="resqverse-intro-final">
+(() => {
+ const intro=document.getElementById('resq-brand-intro'), skip=document.getElementById('introSkip');
+ if(!intro)return;
+ const finish=()=>{intro.classList.add('is-done');setTimeout(()=>intro.remove(),950)};
+ skip?.addEventListener('click',finish);
+ setTimeout(finish,2450);
+})();
+</script>
+<div class="medical-onboard" id="medicalOnboard" aria-modal="true" role="dialog">
+  <div class="onboard-card">
+    <div class="onboard-brand"><div class="onboard-logo">R</div><div><strong>ResQVerse AI</strong><div style="font-size:11px;color:#737d91;margin-top:3px">Secure health profile</div></div></div>
+    <h2>Create your ResQ ID</h2>
+    <p class="lead">Your ResQ ID is generated only after you create your medical profile. Enter accurate information so emergency responders can see the information you choose to share.</p>
+    <form id="medicalProfileForm" novalidate>
+      <div class="medical-form">
+        <div class="medical-field"><label>Full name *</label><input id="profileName" required autocomplete="name"></div>
+        <div class="medical-field"><label>Date of birth *</label><input id="profileDob" type="date" required></div>
+        <div class="medical-field"><label>Age *</label><input id="profileAge" type="number" min="1" max="120" required></div>
+        <div class="medical-field"><label>Blood group *</label><select id="profileBlood" required><option value="">Select</option><option>A+</option><option>A-</option><option>B+</option><option>B-</option><option>AB+</option><option>AB-</option><option>O+</option><option>O-</option><option>Unknown</option></select></div>
+        <div class="medical-field full"><label>Allergies</label><input id="profileAllergies" placeholder="e.g. penicillin, peanuts, none known"></div>
+        <div class="medical-field full"><label>Medical conditions / ongoing problems</label><textarea id="profileConditions" placeholder="Conditions that emergency clinicians should know about"></textarea></div>
+        <div class="medical-field full"><label>Current medications</label><textarea id="profileMeds" placeholder="Medicine names and strengths, if applicable"></textarea></div>
+        <div class="medical-field full"><label>Previous prescriptions / medical history</label><textarea id="profilePrescriptions" placeholder="You can enter important previous prescription details. File upload can be added in the backend version."></textarea></div>
+      </div>
+      <div class="id-lock">🔐 Phase 1.1 sends this profile to the local ResQVerse backend. MongoDB + authentication + encrypted production storage come in later phases.</div>
+      <div class="onboard-actions"><button type="button" class="secondary-action" id="skipProfile">Not now</button><button class="primary-action" id="createResqIdBtn" type="button">Create my ResQ ID</button></div>
+      <div class="medical-note">Emergency information should be accurate and current. ResQVerse AI is not a substitute for professional medical care.</div>
+    </form>
+  </div>
+</div>
+
+
+<script id="resq-api-integration">
+(() => {
+  const API_BASE = '';
+  const form = document.getElementById('medicalProfileForm');
+  const createBtn = document.getElementById('createResqIdBtn');
+  if (!form || !createBtn) return;
+
+  window.ResQAPI = {
+    async saveProfile(profile){
+      const response = await fetch(`${API_BASE}/api/profile`, {
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify(profile)
+      });
+      const data = await response.json().catch(() => ({}));
+      if(!response.ok) throw new Error(data.message || 'Profile could not be saved.');
+      return data;
+    }
+  };
+
+  const getValue = id => document.getElementById(id)?.value.trim() || '';
+  const setBusy = busy => {
+    createBtn.disabled = busy;
+    createBtn.textContent = busy ? 'Creating ResQ ID…' : 'Create my ResQ ID';
+  };
+
+  async function createProfile(){
+    if (createBtn.disabled) return;
+
+    const profile = {
+      name: getValue('profileName'),
+      dob: document.getElementById('profileDob')?.value || '',
+      age: Number(document.getElementById('profileAge')?.value || 0),
+      bloodGroup: document.getElementById('profileBlood')?.value || '',
+      allergies: getValue('profileAllergies'),
+      medicalConditions: getValue('profileConditions'),
+      medications: getValue('profileMeds'),
+      previousMedicalHistory: getValue('profilePrescriptions')
+    };
+
+    if (!profile.name || !profile.dob || !profile.age || !profile.bloodGroup) {
+      toast('Please complete your name, date of birth, age and blood group.');
+      return;
+    }
+
+    try {
+      setBusy(true);
+      const data = await window.ResQAPI.saveProfile(profile);
+      const saved = data.profile;
+
+      localStorage.setItem('resqverse_medical_profile_v2', JSON.stringify(saved));
+      localStorage.setItem('resqverse_resqid_v2', saved.resqId);
+
+      const code = document.getElementById('resqIdCode');
+      if(code) code.textContent = saved.resqId;
+      const success = document.getElementById('resqIdSuccess');
+      if(success) success.textContent = 'Profile saved through the ResQVerse backend.';
+      const blood = document.getElementById('profileBloodDisplay');
+      if(blood) blood.textContent = saved.bloodGroup || 'Not added';
+      const allergies = document.getElementById('profileAllergiesDisplay');
+      if(allergies) allergies.textContent = saved.allergies || 'None added';
+      const status = document.getElementById('profileStatusDisplay');
+      if(status) status.textContent = 'Ready';
+      const type = document.getElementById('profileTypeDisplay');
+      if(type) type.textContent = 'Backend profile';
+
+      document.getElementById('medicalOnboard')?.classList.remove('open');
+      const banner = document.getElementById('guestBanner');
+      if(banner) banner.style.display = 'none';
+      toast(`ResQ ID created: ${saved.resqId}`);
+      window.dispatchEvent(new CustomEvent('resq:profile-saved',{detail:saved}));
+    } catch(error) {
+      console.error('ResQ profile save failed:', error);
+      toast(error.message || 'Could not save your profile.');
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  // Button is type="button", so a click can never cause a native page reload.
+  createBtn.addEventListener('click', createProfile);
+
+  // Keep Enter-key submission safe too.
+  form.addEventListener('submit', event => {
+    event.preventDefault();
+    createProfile();
+  });
+})();
+</script>
+<script id="resq-auth-js">
+(() => {
+  let signup=true;
+  const modal=document.getElementById('authModal'), btn=document.getElementById('authBtn');
+  const title=document.getElementById('authTitle'), submit=document.getElementById('authSubmit'), sw=document.getElementById('authSwitch'), name=document.getElementById('authName'), email=document.getElementById('authEmail'), pass=document.getElementById('authPassword'), msg=document.getElementById('authMessage'), logout=document.getElementById('authLogout');
+  const setAuth=(user)=>{ window.__resqUser=user||null; const s=document.getElementById('authStatus'); if(s)s.textContent=user?user.email:'Guest mode'; if(btn)btn.textContent=user?'Account':'Sign in'; document.getElementById('guestBanner')?.classList.toggle('has-profile',!!user); };
+  window.closeAuth=()=>modal?.classList.remove('show');
+  window.openAuth=(mode='signup')=>{signup=mode!=='login'; title.textContent=signup?'Create your secure account.':'Welcome back.'; submit.textContent=signup?'Create account':'Sign in'; sw.textContent=signup?'Already have an account? Sign in':'New here? Create an account'; name.style.display=signup?'block':'none'; logout.style.display=window.__resqUser?'block':'none'; msg.textContent=''; modal?.classList.add('show');};
+  btn?.addEventListener('click',()=>window.openAuth(window.__resqUser?'login':'signup'));
+  sw?.addEventListener('click',()=>window.openAuth(signup?'login':'signup'));
+  logout?.addEventListener('click',async()=>{await fetch('/api/auth/logout',{method:'POST'});setAuth(null);closeAuth();toast('Signed out');});
+  submit?.addEventListener('click',async()=>{msg.textContent='Working…';const body=signup?{displayName:name.value.trim(),email:email.value.trim(),password:pass.value}:{email:email.value.trim(),password:pass.value};try{const r=await fetch(signup?'/api/auth/signup':'/api/auth/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});const d=await r.json();if(!r.ok)throw new Error(d.message||'Authentication failed');setAuth(d.user);closeAuth();toast(signup?'Account created.':'Signed in.');if(window.__openProfileAfterAuth){window.__openProfileAfterAuth=false;document.getElementById('medicalOnboard')?.classList.add('open');}}catch(e){msg.textContent=e.message||'Authentication failed.';}});
+  window.requireAuth=()=>{if(window.__resqUser)return true;window.__openProfileAfterAuth=true;openAuth('signup');toast('Create an account first to save your ResQ ID.');return false};
+  fetch('/api/auth/me').then(r=>r.ok?r.json():null).then(d=>setAuth(d?.user||null)).catch(()=>setAuth(null));
+})();
+</script>
+<script id="resq-profile-init">
+(() => {
+  const pKey='resqverse_medical_profile_v2', idKey='resqverse_resqid_v2';
+  let p=null; try{p=JSON.parse(localStorage.getItem(pKey)||'null')}catch{}
+  // Guest mode is the default. Profile creation is optional until the user chooses it.
+  document.getElementById('guestBanner')?.classList.toggle('has-profile', !!p);
+  if(p && p.name && p.dob && p.age && p.bloodGroup){
+    const b=document.getElementById('guestBanner');
+    if(b) b.style.display='none';
+  }
+
+  fetch('/api/profile').then(r=>r.ok?r.json():null).then(d=>{ if(d?.profile){ localStorage.setItem(pKey,JSON.stringify(d.profile)); localStorage.setItem(idKey,d.profile.resqId); const code=document.getElementById('resqIdCode');if(code)code.textContent=d.profile.resqId; const b=document.getElementById('profileBloodDisplay');if(b)b.textContent=d.profile.bloodGroup||'Not added'; const a=document.getElementById('profileAllergiesDisplay');if(a)a.textContent=d.profile.allergies||'None added'; const st=document.getElementById('profileStatusDisplay');if(st)st.textContent='Ready'; const tp=document.getElementById('profileTypeDisplay');if(tp)tp.textContent='Secure account'; const gb=document.getElementById('guestBanner');if(gb)gb.style.display='none'; }}).catch(()=>{});
+})();
+</script>
+
+
+<script id="guest-mode-js">
+(() => {
+  const PROFILE_KEY='resqverse_medical_profile_v2';
+  const ID_KEY='resqverse_resqid_v2';
+  const getProfile=()=>{try{return JSON.parse(localStorage.getItem(PROFILE_KEY)||'null')}catch{return null}};
+  const complete=p=>!!(p&&p.name&&p.dob&&p.age&&p.bloodGroup);
+  const openProfile=()=>{ if(window.requireAuth && !window.requireAuth()) return; document.getElementById('medicalOnboard')?.classList.add('open'); };
+
+  document.getElementById('createProfileGuest')?.addEventListener('click',openProfile); document.getElementById('generateResqId')?.addEventListener('click',openProfile); document.getElementById('copyResqId')?.addEventListener('click',()=>{const v=document.getElementById('resqIdCode')?.textContent||''; if(v&&v!=='Not generated') navigator.clipboard?.writeText(v).then(()=>toast('ResQ ID copied'));});
+
+  // Guest users can use every non-profile-dependent feature.
+  // Only features that genuinely require identity/medical data ask for a profile.
+  window.ResQVerseGuest={
+    isGuest:()=>!complete(getProfile()),
+    openProfile,
+    getProfile
+  };
+
+  const banner=document.getElementById('guestBanner');
+  const p=getProfile();
+  if(complete(p) && banner) banner.style.display='none';
+
+  // Update the onboarding "Not now" action: it means continue as Guest.
+  document.getElementById('skipProfile')?.addEventListener('click',()=>{
+    document.getElementById('medicalOnboard')?.classList.remove('open');
+  });
+
+  // If an ID already exists but profile was somehow removed, invalidate it.
+  if(!complete(p)) localStorage.removeItem(ID_KEY);
+})();
+</script>
+
+
+
+
+
+<script id="resq-sos-v2">
+(() => {
+  const btn=document.getElementById('v2SosBtn');
+  const status=document.getElementById('v2SosStatus');
+  if(!btn)return;
+  btn.addEventListener('click', async()=>{
+  status.textContent='Getting your location…';
+
+  try{
+    const cs=contacts();
+
+    if(!cs.length){
+      status.textContent='Add an emergency contact first.';
+      toast('Add emergency contacts first');
+      scrollToId('contacts');
+      return;
+    }
+
+    const p=await getLocation();
+    const lat=p.coords.latitude;
+    const lon=p.coords.longitude;
+
+    const locationUrl=`https://maps.google.com/?q=${lat},${lon}`;
+    const message=`🚨 EMERGENCY ALERT — I need immediate help.\n\nMy current location:\n${locationUrl}`;
+
+    const urls=cs.map(c=>{
+      const digits=String(c.phone||'').replace(/\D/g,'');
+      const phone=digits.length===10 ? `91${digits}` : digits;
+      return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+    }).filter(Boolean);
+
+    if(!urls.length){
+      status.textContent='No valid emergency contact number found.';
+      toast('Check your emergency contact number');
+      return;
+    }
+
+    // Open WhatsApp for the first saved emergency contact immediately.
+    window.location.href=urls[0];
+
+    // Try opening additional saved contacts.
+    urls.slice(1).forEach((url,i)=>{
+      setTimeout(()=>window.open(url,'_blank'),1200*(i+1));
+    });
+
+    status.textContent=`WhatsApp emergency alert prepared for ${cs.length} saved contact(s).`;
+  }catch(e){
+    let msg='Could not access your location.';
+
+    if(e?.code===1) msg='Location permission denied. Allow location for this site.';
+    else if(e?.code===2) msg='Location unavailable. Turn on device location/GPS.';
+    else if(e?.code===3) msg='Location request timed out. Try again.';
+
+    status.textContent=msg;
+    toast(msg);
+  }
+});
+})();
+</script>
+
+<footer class="resq-developer-footer" aria-label="ResQVerse AI developer credit">
+  <div class="resq-footer-brand">ResQVerse AI</div>
+  <div class="resq-footer-credit">Built with <span aria-label="love">♥</span> by <strong>Anshuman Dwivedi</strong></div>
+  <div class="resq-footer-meta">© 2026 ResQVerse AI · Student-built healthcare &amp; emergency prototype</div>
+</footer>
+
+<script id="resq-id-reminder-script">
+(function(){
+  const INTERVAL = 10 * 60 * 1000;
+  let timer = null;
+  let toast = null;
+
+  function hasResQID(){
+    try{
+      return Boolean(localStorage.getItem('resqverse_resqid_v2'));
+    }catch(e){ return false; }
+  }
+
+  function removeToast(){
+    if(toast && toast.parentNode) toast.parentNode.removeChild(toast);
+    toast = null;
+  }
+
+  function showReminder(){
+    if(hasResQID()) return;
+    removeToast();
+
+    toast = document.createElement('aside');
+    toast.className = 'resq-id-reminder';
+    toast.setAttribute('role','status');
+    toast.setAttribute('aria-live','polite');
+    toast.innerHTML = `
+      <div class="resq-id-reminder-title">Unlock all of ResQ AI</div>
+      <div class="resq-id-reminder-text">Please create your ResQ ID to access all ResQVerse AI features and keep your medical profile ready when you need it.</div>
+      <div class="resq-id-reminder-actions">
+        <button type="button" class="resq-id-reminder-create">Create ResQ ID</button>
+        <button type="button" class="resq-id-reminder-close">Cancel</button>
+      </div>
+    `;
+    document.body.appendChild(toast);
+
+    toast.querySelector('.resq-id-reminder-close').addEventListener('click', removeToast);
+
+    toast.querySelector('.resq-id-reminder-create').addEventListener('click', function(){
+      // Use the existing profile/onboarding trigger when the current page exposes one.
+      document.getElementById('medicalOnboard')?.classList.add('open');
+      document.getElementById('profileName')?.focus();
+      removeToast();
+    });
+  }
+
+  function start(){
+    if(timer) clearInterval(timer);
+    timer = setInterval(showReminder, INTERVAL);
+  }
+
+  // Do not interrupt the initial experience; the first reminder appears after 10 minutes.
+  start();
+
+  // If a ResQ ID is created elsewhere in the app, stop future reminders.
+  window.addEventListener('storage', function(e){
+    if(e.key === 'resqverse_resqid_v2'){
+      if(hasResQID()){
+        if(timer) clearInterval(timer);
+        removeToast();
+      }
+    }
+  });
+})();
+</script>
+<script id="resq-qr-fix">
+(() => {
+  function renderResQQR() {
+    const codeEl = document.getElementById('resqIdCode');
+    const canvas = document.getElementById('resqQr');
+
+    if (!codeEl || !canvas || typeof QRious === 'undefined') return;
+
+    const id = codeEl.textContent.trim();
+
+    if (!id || id === 'Not generated') return;
+
+    new QRious({
+      element: canvas,
+      value: id,
+      size: 108,
+      level: 'H',
+      background: '#ffffff',
+      foreground: '#080b12'
+    });
+  }
+
+  // Existing ID on page load / refresh
+  renderResQQR();
+
+  // Detect when ResQ ID changes after profile creation
+  const codeEl = document.getElementById('resqIdCode');
+
+  if (codeEl) {
+    const observer = new MutationObserver(() => {
+      renderResQQR();
+    });
+
+    observer.observe(codeEl, {
+      childList: true,
+      characterData: true,
+      subtree: true
+    });
+  }
+})();
+</script>
+</body></html>

@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: resqverse-ai
+    runtime: node
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
