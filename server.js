@@ -440,7 +440,7 @@ app.get('/api/pharmacies', async (req, res) => {
   }
 
   const query = `
-    [out:json][timeout:20];
+    [out:json][timeout:25];
     (
       node["amenity"="pharmacy"](around:5000,${lat},${lon});
       way["amenity"="pharmacy"](around:5000,${lat},${lon});
@@ -448,68 +448,54 @@ app.get('/api/pharmacies', async (req, res) => {
     out center;
   `;
 
-  const providers = [
-    'https://overpass-api.de/api/interpreter',
-    'https://overpass.private.coffee/api/interpreter'
-  ];
+  try {
+    const r = await fetch(
+      'https://overpass-api.de/api/interpreter?data=' +
+      encodeURIComponent(query)
+    );
 
-  let data = null;
-  let lastError = null;
-
-  for (const provider of providers) {
-    try {
-      const controller = new AbortController();
-      const timeout = setTimeout(() => controller.abort(), 15000);
-
-      const response = await fetch(provider, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-          'User-Agent': 'ResQVerse-AI/1.0'
-        },
-        body: `data=${encodeURIComponent(query)}`,
-        signal: controller.signal
+    if (!r.ok) {
+      return res.status(502).json({
+        ok: false,
+        message: 'Pharmacy data provider is temporarily unavailable.'
       });
-
-      clearTimeout(timeout);
-
-      if (!response.ok) {
-        throw new Error(`Provider returned ${response.status}`);
-      }
-
-      data = await response.json();
-      break;
-    } catch (error) {
-      lastError = error;
     }
-  }
 
-  if (!data) {
-    console.error('Pharmacy provider error:', lastError?.message);
-    return res.status(502).json({
+    const data = await r.json();
+
+    const pharmacies = data.elements
+      .map(el => {
+        const pLat = el.lat ?? el.center?.lat;
+        const pLon = el.lon ?? el.center?.lon;
+
+        return {
+          name: el.tags?.name || 'Unnamed pharmacy',
+          phone:
+            el.tags?.phone ||
+            el.tags?.['contact:phone'] ||
+            null,
+          lat: Number(pLat),
+          lon: Number(pLon)
+        };
+      })
+      .filter(p =>
+        Number.isFinite(p.lat) &&
+        Number.isFinite(p.lon)
+      );
+
+    res.json({
+      ok: true,
+      pharmacies
+    });
+
+  } catch (error) {
+    console.error('Pharmacy provider error:', error.message);
+
+    res.status(502).json({
       ok: false,
-      message: 'Pharmacy data provider is temporarily unavailable.'
+      message: 'Could not reach the pharmacy data provider.'
     });
   }
-
-  const pharmacies = data.elements
-    .map(el => {
-      const pLat = el.lat ?? el.center?.lat;
-      const pLon = el.lon ?? el.center?.lon;
-
-      return {
-        name: el.tags?.name || 'Unnamed pharmacy',
-        phone: el.tags?.phone || el.tags?.['contact:phone'] || null,
-        lat: Number(pLat),
-        lon: Number(pLon)
-      };
-    })
-    .filter(p => Number.isFinite(p.lat) && Number.isFinite(p.lon));
-
-  res.json({
-    ok: true,
-    pharmacies
-  });
 });
 app.get('/api/hospitals', async (req, res) => {
   const lat = Number(req.query.lat);
